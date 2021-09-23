@@ -1,0 +1,53 @@
+Charizard
+Fire, Flying
+Flamethrower, Dragon Claw, Air Slash, Fire Spin
+Fire, Dragon, Flying, Fire
+Rock, Water, Electric
+Grass, Ground, Fire, Steel
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png
+https://i.kym-cdn.com/photos/images/original/001/014/145/8eb.gif, https://i.pinimg.com/originals/4e/e3/c5/4ee3c54560bb88470e4f5129a7682ea9.gif, https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5035ebd5-0726-4c1a-b123-57d1456d099c/day0zpp-4ade4afb-fd0f-478a-ae14-306ddede5723.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi81MDM1ZWJkNS0wNzI2LTRjMWEtYjEyMy01N2QxNDU2ZDA5OWMvZGF5MHpwcC00YWRlNGFmYi1mZDBmLTQ3OGEtYWUxNC0zMDZkZGVkZTU3MjMuZ2lmIn1dXX0.uliwczrYfCRVuD9XcjuDRC_JRXR2HrDzTbne_2s3aic, https://pa1.narvii.com/5775/740c0b4e6ff1cb4ad979a3347b8acb6beadee104_hq.gif, https://pa1.narvii.com/7367/b5c22a6a3ff402eb1c821368ed5d511cfdc7e695r1-499-374_hq.gif
+
+Dragonite
+Dragon, Flying
+Dragon Claw, Ice Beam, Hyper Beam, Dragon Rush
+Dragon, Ice, Normal, Dragon
+Dragon, Ice, Rock
+Grass, Water, Ground, Fire
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png
+https://i.pinimg.com/originals/78/38/8a/78388a3417b0a266cfba36540292b0ce.gif, https://data.whicdn.com/images/35005510/original.gif, https://pa1.narvii.com/7511/8f029988db89a5ae0dd2b78cf21c295a2773c165r1-600-338_hq.gif, https://comicvine1.cbsistatic.com/uploads/original/11113/111130700/3896546-8993541275-tumbl.gif, https://pa1.narvii.com/5882/588d310ffa811f9433c7e2170ab9cc8ce2d59b5f_hq.gif
+
+Regirock
+Rock
+Rock Throw, Charge Beam, Bulldoze, Explosion
+Rock, Electric, Ground, Normal
+Ground, Grass, Water, Steel
+Normal, Flying, Fire
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/377.png
+https://pa1.narvii.com/6091/984277cd46eac5ae4e149f71346dbcb59d1beed1_00.gif, https://pa1.narvii.com/6923/7500b33449c3930e371258e52189972d690b00a7r1-500-257_hq.gif, https://pa1.narvii.com/5923/8a165c75ed781fcc6278503766a61ba12947ff33_00.gif, https://thumbs.gfycat.com/ComposedPessimisticAntipodesgreenparakeet-small.gif, https://archive-media-0.nyafuu.org/vp/image/1418/91/1418915871913.gif
+
+Pikachu
+Electric
+Thunderbolt, Quick Attack, Electro Ball, Iron Tail
+Electric, Normal, Electric, Steel
+Ground
+Flying, Electric, Steel
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png
+https://i.pinimg.com/originals/76/8d/16/768d166fefb2a9a31002c7b69ebe90ee.gif, https://pa1.narvii.com/5580/ef35733fcb229b806c17f71d2c3c8402f4e29535_hq.gif, https://i.kym-cdn.com/photos/images/original/000/261/427/bf5.gif, https://pa1.narvii.com/6269/511f6e82e0e598c03265b9a6d7b8ea5206745a44_hq.gif, https://i.pinimg.com/originals/a0/c8/a3/a0c8a3b1e964f42ddf6e5c12d3ade73c.gif
+
+Sceptile
+Grass
+Solar Beam, Frenzy Plant, Leaf Blade, Dragon Claw
+Grass, Grass, Grass, Dragon
+Flying, Fire, Ice
+Ground, Water, Grass, Electric
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/254.png
+https://pa1.narvii.com/5884/bb93dfe4c5fef59602d16224b7e3229ea854ff16_hq.gif, https://1.bp.blogspot.com/-9GILbZtFCqk/V7_QmPUFJbI/AAAAAAAAAJc/ORpf_ybGQjUNjtryLQpEcKrNeK7hhYz4wCLcB/s1600/FrenzyPlant.gif, https://pa1.narvii.com/7185/d5cb1e9c065215be38758156b97db0eb0588547er1-600-338_hq.gif, https://i.pinimg.com/originals/ab/59/95/ab59953f94deca15b54e8fe2517f0b52.gif, https://i.kym-cdn.com/photos/images/original/001/010/047/c41.gif
+
+Blastoise
+Water
+Water Gun, Ice Beam, Hydro Pump, Skull Bash
+Water, Ice, Water, Normal
+Grass, Electric
+Fire, Ice, Water, Steel
+https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png
+https://steamuserimages-a.akamaihd.net/ugc/81464207535054690/EC9FE747E4F9A88621157E71C717EB6486C1B601/, https://steamuserimages-a.akamaihd.net/ugc/775098178060657706/3D3A71B2797CD3A45B69EFBD53D8BC3BEF378E42/, https://i.pinimg.com/originals/ab/d1/e1/abd1e16069f718748ff132e0b0944826.gif, https://i.pinimg.com/originals/dd/25/b3/dd25b3f4c7c51d67ea8c40a5586c4160.gif, https://i.pinimg.com/originals/9a/50/34/9a50346b1c41a4befd80da593b00054f.gif
