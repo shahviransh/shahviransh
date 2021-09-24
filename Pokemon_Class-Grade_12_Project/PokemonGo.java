@@ -23,7 +23,7 @@ public class PokemonGo {
      * @throws java.io.FileNotFoundException might occur in main
      */
     public static void main(String[] args) throws java.io.FileNotFoundException {
-        File file1 = new File("G:\\My Drive\\Viransh\\Computer Science\\Grade 12\\Programming Tasks\\Pokemon Class\\PokemonName.txt");
+        File file1 = new File("Pokemon_Class-Grade_12_Project\\PokemonGo.java");
         Scanner file = new Scanner(file1);
         Scanner in = new Scanner(System.in);
         String pokemonName = "";
@@ -162,8 +162,7 @@ public class PokemonGo {
         Player player1 = new Player(name1, pokemons1);
         Player player2 = new Player(name2, pokemons2);
         // Method calls for choosingPokemon for each Player
-        // Return values of the methods and others are passed as arguments
-        in.close();
+        // Return values of the methods and others are passed as arguments       
         playingPokemon(player1, player2, choosingPokemon(player1), choosingPokemon(player2), 1);
     }
 
@@ -192,14 +191,12 @@ public class PokemonGo {
             }
             System.out.println();
             if (num > 0 && num <= player.getPokemons().size()) {
-                in.close();
                 return player.getPokemons().get(num - 1);
             } else {
                 System.out.println("Invalid Pokemon number entered.");
                 System.out.println();
             }
-        }
-        in.close();
+        }       
         return null;
     }
 
@@ -388,8 +385,7 @@ public class PokemonGo {
                 }
                 System.exit(0);
             }
-        }
-        in.close();
+        }       
     }
 
     /**
@@ -787,8 +783,7 @@ public class PokemonGo {
                 System.out.println("Either type Y or N");
                 // Recursion to give user another change to enter the right String
                 quit(-1);
-            }
-            in.close();
+            }           
         }
     }
 
