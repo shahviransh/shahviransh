@@ -2,13 +2,11 @@
 
 I am a second year Computer Science at McMaster University, and I looking forward to Hack the North!
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning C, Elm
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
+- 🔭 I’m currently working on completing my undergraduate studies.
+- 🌱 I’m currently learning HTML, CSS, Javascript, and React
+- 👯 I’m looking to collaborate on Renterii's projects after summer break.
+<!-- - 🤔 I’m looking for help with ... -->
+<!-- - 💬 Ask me about ... -->
 - 📫 How to reach me: shahv47@mcmaster.ca, viranshshah@gmail.com
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+- 😄 Pronouns: Vi-ra-ansh
+- ⚡ Fun fact: I love watching anime and reading mangas, and recently I've been reading various fictional novels.
