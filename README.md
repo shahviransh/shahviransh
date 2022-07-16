@@ -1,6 +1,6 @@
 ### Hi there 👋, this is Viransh Shah
 
-I am a first year Computer Science at McMaster University, and I am looking for a summer co-op job right now!
+I am a second year Computer Science at McMaster University, and I looking forward to Hack the North!
 
 Here are some ideas to get you started:
 
