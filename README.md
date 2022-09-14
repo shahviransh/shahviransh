@@ -14,4 +14,4 @@ I am a second year Computer Science at McMaster University, and I looking forwar
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=shahviransh&show_icons=true&theme=tokyonight)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=shahviransh&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
