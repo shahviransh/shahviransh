@@ -12,4 +12,4 @@ I am a second year Computer Science at McMaster University, and I looking forwar
 - ⚡ Fun fact: I love watching anime and reading mangas, and recently I've been reading various fictional novels.
 
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=shahviransh)](https://github.com/anuraghazra/github-readme-stats)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=shahviransh&show_icons=true&theme=radical)
