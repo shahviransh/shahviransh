@@ -9,7 +9,7 @@
 
 - 🌱 I’m currently learning **I’m currently learning HTML, CSS, Javascript, and React**
 
-- 👯 I’m looking to collaborate on **Renterii's projects after summer break**
+- 👯 I’m looking to collaborate on 
 
 - 🤝 I’m looking for help with **connecting to various employers for my 2023 spring co-op.**
 
