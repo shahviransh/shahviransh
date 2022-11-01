@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on **completing my undergraduate studies.**
 
-- 🌱 I’m currently learning **I’m currently learning HTML, CSS, Javascript, and React**
+- 🌱 I’m currently learning **Data Sctuctures & ALgorithms, Java design patterns, as well as ARM Assembly**
 
 - 👯 I’m looking to collaborate on 
 
