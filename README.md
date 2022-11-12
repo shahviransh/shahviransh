@@ -9,7 +9,7 @@
 
 - 🌱 I’m currently learning **Data Sctuctures & ALgorithms, Java design patterns, as well as ARM Assembly**
 
-- 👯 I’m looking to collaborate on 
+- 👯 Hackathon's: OpenAI Climate Change Hackathon on 12-13th November 2022, and looking forward to DeltaHacks in January, 2023.
 
 - 🤝 I’m looking for help with **connecting to various employers for my 2023 spring co-op.**
 
