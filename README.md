@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on **completing my undergraduate studies.**
 
-- 🌱 I’m currently learning ****
+- 🌱 I’m currently learning 
 
 - 👯 
 
