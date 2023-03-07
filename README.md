@@ -7,13 +7,13 @@
 
 - 🔭 I’m currently working on **completing my undergraduate studies.**
 
-- 🌱 I’m currently learning **Data Sctuctures & ALgorithms, Java design patterns, as well as ARM Assembly**
+- 🌱 I’m currently learning ****
 
-- 👯 Hackathon's: Looking forward to DeltaHacks in January, 2023.
+- 👯 
 
-- 🤝 I’m looking for help with **connecting to various employers for my 2023 spring co-op.**
+- 🤝 I’m looking for help with ****
 
-- 😄 Pronouns **Vi-ra-ansh**
+- 😄 Pronunciation **Vi-ra-ansh**
 
 - 📫 How to reach me **shahv47@mcmaster.ca, viranshshah@gmail.com**
 
