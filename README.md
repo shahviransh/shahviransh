@@ -7,11 +7,11 @@
 
 - 🔭 I’m currently working on **completing my undergraduate studies.**
 
-- 🌱 I’m currently learning 
+- 🌱 I’m currently learning Full Stack development, Python,Java for backend and HTML, CSS, Javascript, Tailwind, React for frontend.
 
 - 👯 
 
-- 🤝 I’m looking for help with ****
+- 🤝 I’m looking for help with **gaining experience for full stack development.**
 
 - 😄 Pronunciation **Vi-ra-ansh**
 
