@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Viransh Shah</h1>
-<h3 align="center">I am a second year Computer Science student at McMaster University, and I am looking forward to joining various McMaster clubs this year!</h3>
+<h3 align="center">I am a third year Computer Science student at McMaster University, and I am looking forward to joining various McMaster clubs this year!</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=shahviransh&label=Profile%20views&color=0e75b6&style=flat" alt="shahviransh" /> </p>
 
@@ -7,11 +7,11 @@
 
 - 🔭 I’m currently working on **completing my undergraduate studies.**
 
-- 🌱 I’m currently learning Full Stack development, Python,Java for backend and HTML, CSS, Javascript, Tailwind, React for frontend.
+- 🌱 I’m currently learning things related to CyberSecurity on TryHackMe and HackTheBox.
 
-- 👯 
+- 👯 I'm currently participating in Advent of Code and Advent of Cyber on TryHackme.
 
-- 🤝 I’m looking for help with **gaining experience for full stack development.**
+- 🤝 I’m looking for help co-op in 2024
 
 - 😄 Pronunciation **Vi-ra-ansh**
 
