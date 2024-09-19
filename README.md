@@ -11,7 +11,7 @@
 
 - 👯 I'm currently participating in Advent of Code and Advent of Cyber on TryHackme.
 
-- 🤝 I’m looking for help co-op in 2024
+- 🤝 I’m currently on co-op, working at ECCC as a Full-stack developer.
 
 - 😄 Pronunciation **Vi-ra-ansh**
 
