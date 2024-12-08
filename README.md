@@ -19,7 +19,7 @@
 
 - 🤝 I’m currently on co-op, working at ECCC as a Full-stack developer.
 
-- 📄 **[View My Resume](https://github.com/username/private-repo-name/blob/main/Resume.pdf)**
+- 📄 **[View My Resume](https://github.com/shahviransh/McMaster-University/blob/main/Resume/Resume.pdf)**
 
 - 😄 Pronunciation **Vi-ra-ansh**
 
