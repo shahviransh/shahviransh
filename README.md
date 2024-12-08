@@ -25,7 +25,7 @@
 
 - 📫 How to reach me **shahv47@mcmaster.ca, viranshshah@gmail.com**
 
-- ⚡ Fun fact **I love watching anime and reading mangas, and recently I've been reading various fictional novels.**
+<!-- - ⚡ Fun fact **I love watching anime and reading mangas, and recently I've been reading various fictional novels.** -->
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
