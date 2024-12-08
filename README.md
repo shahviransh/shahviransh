@@ -21,6 +21,8 @@
 
 - 📄 **[View My Resume](https://github.com/shahviransh/shahviransh/blob/main/Resume.pdf)**
 
+- 📄 **[Download My Resume](https://github.com/shahviransh/shahviransh/raw/main/Resume.pdf)**
+
 - 😄 Pronunciation **Vi-ra-ansh**
 
 - 📫 How to reach me **shahv47@mcmaster.ca, viranshshah@gmail.com**
