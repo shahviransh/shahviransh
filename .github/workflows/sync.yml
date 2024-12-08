@@ -19,7 +19,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git clone --depth 1 --filter=blob:none --sparse https://x-access-token:${TOKEN}@github.com/shahviransh/McMaster-University.git
+          git clone --depth 1 --filter=blob:none --sparse https://shahviransh:${TOKEN}@github.com/shahviransh/McMaster-University.git
           cd McMaster-University
           git sparse-checkout set Resume
           rsync -a Resume/ ../Resume/
