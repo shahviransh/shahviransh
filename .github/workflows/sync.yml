@@ -19,6 +19,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo ${TOKEN}
           git clone --depth 1 --filter=blob:none --sparse https://shahviransh:${TOKEN}@github.com/shahviransh/McMaster-University.git
           cd McMaster-University
           git sparse-checkout set Resume
