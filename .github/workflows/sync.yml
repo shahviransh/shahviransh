@@ -17,7 +17,7 @@ jobs:
 
       - name: Pull Resume Folder from Repo B
         run: |
-          git clone --depth 1 --filter=blob:none --sparse hhttps://github.com/shahviransh/McMaster-University.git
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/shahviransh/McMaster-University.git
           cd McMaster-University
           git sparse-checkout set Resume
           rsync -a Resume/ ../Resume/
