@@ -22,7 +22,7 @@ jobs:
           git clone 'https://shahviransh:${{env.TOKEN}}@github.com/shahviransh/McMaster-University.git'
           cd McMaster-University
           git sparse-checkout set Resume
-          rsync -a Resume/Resume.pdf ../Resume/Resume.pdf
+          rsync -a Resume/Resume.pdf ../Resume.pdf
           cd ..
           rm -rf McMaster-University
 
