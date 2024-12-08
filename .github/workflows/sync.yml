@@ -1,0 +1,33 @@
+name: Sync Resume Folder from Repo B
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Run this every hour
+  workflow_dispatch:       # Allow manual trigger
+  push:
+    branches:
+      - main               # Run this on push to the main branch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v3
+
+      - name: Pull Resume Folder from Repo B
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse hhttps://github.com/shahviransh/McMaster-University.git
+          cd McMaster-University
+          git sparse-checkout set Resume
+          rsync -a Resume/ ../Resume/
+          cd ..
+          rm -rf McMaster-University
+
+      - name: Commit Changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add Resume
+          git commit -m "Sync Resume folder from Repo B" || exit 0
+          git push origin main
