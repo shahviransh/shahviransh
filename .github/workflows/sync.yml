@@ -1,12 +1,9 @@
 name: Sync Resume Folder from Repo B
 
 on:
-  # Trigger on push to main branch of Repo B
   push:
     branches:
       - main
-    paths:
-      - 'McMaster-University/Resume/Resume.pdf' # Only trigger if Resume.pdf is changed
 
 jobs:
   sync:
@@ -15,15 +12,16 @@ jobs:
       - name: Checkout Repo A
         uses: actions/checkout@v3
 
-      - name: Checkout Repo B
-        uses: actions/checkout@v3
-        with:
-          repository: shahviransh/McMaster-University
-          token: ${{ secrets.RESUME }}
-
-      - name: Copy Resume.pdf
+      - name: Pull Resume Folder from Repo B
+        env:
+          TOKEN: ${{ secrets.RESUME }}
         run: |
-          cp McMaster-University/Resume/Resume.pdf Resume.pdf
+          git clone 'https://shahviransh:${{env.TOKEN}}@github.com/shahviransh/McMaster-University.git'
+          cd McMaster-University
+          git sparse-checkout set Resume
+          rsync -a Resume/Resume.pdf ../Resume.pdf
+          cd ..
+          rm -rf McMaster-University
 
       - name: Commit Changes
         run: |
