@@ -1,9 +1,6 @@
 name: Sync Resume Folder from Repo B
 
 on:
-  # Trigger on schedule (daily at midnight)
-  schedule:
-    - cron: '0 0 * * *'
   # Trigger on push to main branch of Repo B
   push:
     branches:
