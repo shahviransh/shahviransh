@@ -1,9 +1,7 @@
 name: Sync Resume Folder from Repo B
 
 on:
-  push:
-    branches:
-      - main
+    workflow_dispatch: # Triggered by the workflow in Repo B
 
 jobs:
   sync:
