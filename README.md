@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Viransh Shah</h1>
-<h3 align="center">I am a third-year Computer Science student at McMaster University!</h3>
+<h3 align="center">I am a fourth-year Computer Science student at McMaster University!</h3>
 
 <p align="left"> 
   <img src="https://komarev.com/ghpvc/?username=shahviransh&label=Profile%20views&color=0e75b6&style=flat" alt="shahviransh" /> 
