@@ -15,8 +15,6 @@
 
 - 🌱 I’m currently learning things related to CyberSecurity on TryHackMe and HackTheBox.
 
-- 🤝 I’m currently on co-op, working at CWA as a Full-stack developer.
-
 - 📄 **[View My Resume](https://github.com/shahviransh/shahviransh/blob/main/Resume.pdf)**
 
 - 📄 **[Download My Resume](https://github.com/shahviransh/shahviransh/raw/main/Resume.pdf)**
