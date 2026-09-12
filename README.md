@@ -15,9 +15,9 @@
 
 - 🌱 I’m currently learning things related to CyberSecurity on TryHackMe and HackTheBox.
 
-- 📄 **[View My Resume](https://github.com/shahviransh/shahviransh/blob/main/Resume.pdf)**
+- 📄 **[View Software Resume](https://github.com/shahviransh/shahviransh/blob/main/Viransh-Shah-Resume-Software-Development.pdf)** / **[Download](https://github.com/shahviransh/shahviransh/raw/main/Viransh-Shah-Resume-Software-Development.pdf)**
 
-- 📄 **[Download My Resume](https://github.com/shahviransh/shahviransh/raw/main/Resume.pdf)**
+- 📄 **[View Security Resume](https://github.com/shahviransh/shahviransh/blob/main/Viransh-Shah-Resume-Security.pdf)** / **[Download](https://github.com/shahviransh/shahviransh/raw/main/Viransh-Shah-Resume-Security.pdf)**
 
 - 😄 Pronunciation **Vi-ra-ansh**
 

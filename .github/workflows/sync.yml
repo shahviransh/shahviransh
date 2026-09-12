@@ -10,14 +10,15 @@ jobs:
       - name: Checkout Repo A
         uses: actions/checkout@v3
 
-      - name: Pull Resume Folder from Repo B
+      - name: Pull Resume PDFs from Repo B
         env:
           TOKEN: ${{ secrets.RESUME }}
         run: |
           git clone 'https://shahviransh:${{env.TOKEN}}@github.com/shahviransh/McMaster-University.git'
           cd McMaster-University
-          git sparse-checkout set Resume
-          rsync -a Resume/Resume.pdf ../Resume.pdf
+          git sparse-checkout set "Resume Software" "Resume Security"
+          rsync -a "Resume Software/Viransh-Shah-Resume-Software-Development.pdf" ../Viransh-Shah-Resume-Software-Development.pdf
+          rsync -a "Resume Security/Viransh-Shah-Resume-Security.pdf" ../Viransh-Shah-Resume-Security.pdf
           cd ..
           rm -rf McMaster-University
 
@@ -25,6 +26,8 @@ jobs:
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add Resume.pdf
-          git commit -m "Sync Resume folder from Repo B" || exit 0
+          git add Viransh-Shah-Resume-Software-Development.pdf
+          git add Viransh-Shah-Resume-Security.pdf
+          git rm --ignore-unmatch Resume.pdf
+          git commit -m "Sync resume PDFs from Repo B" || exit 0
           git push origin main
