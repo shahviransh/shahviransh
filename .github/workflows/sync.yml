@@ -1,33 +1,65 @@
-name: Sync Resume Folder from Repo B
+name: Sync resume PDFs
 
 on:
-    workflow_dispatch: # Triggered by the workflow in Repo B
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo A
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Pull Resume PDFs from Repo B
+      - name: Pull resume PDFs from McMaster-University
         env:
           TOKEN: ${{ secrets.RESUME }}
         run: |
-          git clone 'https://shahviransh:${{env.TOKEN}}@github.com/shahviransh/McMaster-University.git'
-          cd McMaster-University
-          git sparse-checkout set "Resume Software" "Resume Security"
-          rsync -a "Resume Software/Viransh-Shah-Resume-Software-Development.pdf" ../Viransh-Shah-Resume-Software-Development.pdf
-          rsync -a "Resume Security/Viransh-Shah-Resume-Security.pdf" ../Viransh-Shah-Resume-Security.pdf
-          cd ..
-          rm -rf McMaster-University
+          set -euo pipefail
 
-      - name: Commit Changes
+          if [ -z "${TOKEN}" ]; then
+            echo "Missing secrets.RESUME (PAT that can read shahviransh/McMaster-University)"
+            exit 1
+          fi
+
+          git clone --depth 1 --filter=blob:none --sparse \
+            "https://x-access-token:${TOKEN}@github.com/shahviransh/McMaster-University.git" \
+            mcmaster
+
+          git -C mcmaster sparse-checkout set "Resume Software" "Resume Security"
+
+          software="mcmaster/Resume Software/Viransh-Shah-Resume-Software-Development.pdf"
+          security="mcmaster/Resume Security/Viransh-Shah-Resume-Security.pdf"
+
+          if [ ! -s "$software" ] || [ ! -s "$security" ]; then
+            echo "Expected resume PDFs were not in the sparse checkout:"
+            find mcmaster -name '*.pdf' -print || true
+            exit 1
+          fi
+
+          mkdir -p public
+          cp "$software" public/Viransh-Shah-Resume-Software-Development.pdf
+          cp "$security" public/Viransh-Shah-Resume-Security.pdf
+          rm -rf mcmaster
+
+      - name: Commit synced PDFs
         run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git add Viransh-Shah-Resume-Software-Development.pdf
-          git add Viransh-Shah-Resume-Security.pdf
-          git rm --ignore-unmatch Resume.pdf
-          git commit -m "Sync resume PDFs from Repo B" || exit 0
-          git push origin main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/Viransh-Shah-Resume-Software-Development.pdf \
+                  public/Viransh-Shah-Resume-Security.pdf
+          git rm --ignore-unmatch \
+            Resume.pdf \
+            Viransh-Shah-Resume-Software-Development.pdf \
+            Viransh-Shah-Resume-Security.pdf
+
+          if git diff --cached --quiet; then
+            echo "No resume PDF changes"
+            exit 0
+          fi
+
+          git commit -m "Sync resume PDFs from McMaster-University"
+          git push origin HEAD

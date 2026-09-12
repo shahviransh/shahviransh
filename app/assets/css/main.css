@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Palette
+   Light mode is a clean "documentation" surface; dark mode is a terminal.
+   Both share the same semantic token names so components never branch.
+--------------------------------------------------------------------------- */
+:root {
+  --c-bg: #f6f8fc;
+  --c-bg-alt: #eef2f8;
+  --c-surface: #ffffff;
+  --c-surface-alt: #f8fafd;
+  --c-border: #dde4ee;
+  --c-border-strong: #c3cddd;
+  --c-text: #0c1220;
+  --c-text-muted: #55637a;
+  --c-text-faint: #8493aa;
+  --c-accent: #0d9488;
+  --c-accent-soft: #99f6e4;
+  --c-accent-contrast: #ffffff;
+  --c-cyber: #4f46e5;
+  --c-danger: #dc2626;
+  --c-warn: #d97706;
+  --c-grid: rgba(13, 148, 136, 0.08);
+  --c-glow: rgba(13, 148, 136, 0.09);
+  --shadow-card: 0 1px 2px rgba(12, 18, 32, 0.04), 0 8px 24px -12px rgba(12, 18, 32, 0.12);
+  --shadow-card-hover: 0 1px 2px rgba(12, 18, 32, 0.05), 0 20px 48px -16px rgba(12, 18, 32, 0.22);
+}
+
+.dark {
+  --c-bg: #05080f;
+  --c-bg-alt: #080d17;
+  --c-surface: #0b1220;
+  --c-surface-alt: #101a2b;
+  --c-border: #1c2839;
+  --c-border-strong: #2c3d54;
+  --c-text: #e4ecf7;
+  --c-text-muted: #93a3ba;
+  --c-text-faint: #64748b;
+  --c-accent: #2dd4bf;
+  --c-accent-soft: #134e4a;
+  --c-accent-contrast: #04121a;
+  --c-cyber: #818cf8;
+  --c-danger: #f87171;
+  --c-warn: #fbbf24;
+  --c-grid: rgba(45, 212, 191, 0.07);
+  --c-glow: rgba(45, 212, 191, 0.14);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px -18px rgba(0, 0, 0, 0.9);
+  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 28px 60px -24px rgba(0, 0, 0, 1);
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-bg-alt: var(--c-bg-alt);
+  --color-surface: var(--c-surface);
+  --color-surface-alt: var(--c-surface-alt);
+  --color-line: var(--c-border);
+  --color-line-strong: var(--c-border-strong);
+  --color-ink: var(--c-text);
+  --color-muted: var(--c-text-muted);
+  --color-faint: var(--c-text-faint);
+  --color-accent: var(--c-accent);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-accent-contrast: var(--c-accent-contrast);
+  --color-cyber: var(--c-cyber);
+  --color-danger: var(--c-danger);
+  --color-warn: var(--c-warn);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-lift: var(--shadow-card-hover);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-caret: caret 1.05s step-end infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.6s ease-out infinite;
+  --animate-sweep: sweep 3.2s ease-in-out infinite;
+  --animate-drift: drift 22s linear infinite;
+  --animate-menu-in: menu-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--c-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Colour transitions only fire once the theme actually changes, so the
+     first paint is never animated. */
+  html.theme-transition,
+  html.theme-transition body,
+  html.theme-transition *:not(svg *) {
+    transition: background-color 320ms ease, border-color 320ms ease, color 320ms ease,
+      fill 320ms ease, box-shadow 320ms ease;
+  }
+
+  ::selection {
+    background-color: var(--c-accent);
+    color: var(--c-accent-contrast);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--c-bg-alt);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--c-border-strong);
+    border-radius: 99px;
+    border: 3px solid var(--c-bg-alt);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--c-accent);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reusable composites
+--------------------------------------------------------------------------- */
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(105deg, var(--c-text) 8%, var(--c-accent) 52%, var(--c-cyber) 96%);
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* For gradients on a phrase inside a sentence, where fading in from the body
+   text colour would read as a mistake rather than a flourish. */
+@utility text-gradient-accent {
+  background-image: linear-gradient(100deg, var(--c-accent), var(--c-cyber));
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility grid-backdrop {
+  background-image: linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+/* Cards get a hairline gradient edge that brightens toward the cursor side. */
+@utility card-surface {
+  position: relative;
+  background-color: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 0.9rem;
+  box-shadow: var(--shadow-card);
+}
+
+@utility scanlines {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 2px,
+      color-mix(in srgb, var(--c-text) 4%, transparent) 2px 3px
+    );
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal (driven by the v-reveal directive)
+--------------------------------------------------------------------------- */
+/* Scoped to `html.js` so content is never left hidden when scripting is off. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.js [data-reveal="left"] {
+  transform: translate3d(-28px, 0, 0);
+}
+.js [data-reveal="right"] {
+  transform: translate3d(28px, 0, 0);
+}
+.js [data-reveal="scale"] {
+  transform: scale(0.94);
+}
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Keyframes
+--------------------------------------------------------------------------- */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 460px 460px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

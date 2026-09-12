@@ -1,0 +1,42 @@
+# Publish the user site at https://shahviransh.github.io
+# GitHub only serves that root URL from shahviransh/shahviransh.github.io.
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+      - run: npx nuxt build --preset github_pages
+
+      - name: Publish to shahviransh.github.io
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .output/public
+          branch: main
+          repository-name: shahviransh/shahviransh.github.io
+          token: ${{ secrets.RESUME }}
+          clean: true
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com
+          commit-message: Deploy site from shahviransh/shahviransh
