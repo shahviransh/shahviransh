@@ -18,7 +18,7 @@
 
 - 💼 12-month federal co-op at **Environment and Climate Change Canada** - sole developer of IMWEBs Viewer and Nutri View (prototype to production)
 
-- 🏆 **2nd nationally** at CyberSci 2025 with MacHackers · Dean's Honours List (GPA 3.7 / 4.0)
+- 🏆 **2nd in Toronto, 3rd in Canada** at CyberSci Regional Finals 2025 with MacHackers · Dean's Honours List (GPA 3.7 / 4.0)
 
 - 🌐 Personal site: **[shahviransh.github.io](https://shahviransh.github.io)**
 

@@ -24,10 +24,10 @@
           </span>
           <div class="min-w-0 flex-1">
             <p class="font-mono text-xs tracking-[0.2em] text-accent uppercase">
-              CyberSci 2025 National Finals
+              CyberSci Regional Finals 2025
             </p>
             <h3 class="mt-2 font-display text-2xl font-bold text-balance sm:text-3xl">
-              2nd nationally with
+              2nd in Toronto, 3rd in Canada with
               <span class="text-gradient-accent">MacHackers</span>
             </h3>
             <p class="mt-2 max-w-2xl text-sm/relaxed text-muted">
@@ -35,15 +35,26 @@
               analysis, cryptography, web exploitation, and binary exploitation - under a clock.
             </p>
           </div>
-          <a
-            href="https://cybersecuritychallenge.ca/wp-content/uploads/2025/11/toronto-2nd-scaled.jpg"
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-surface px-4 py-2.5 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5 hover:bg-accent/10"
-          >
-            See the photo
-            <AppIcon name="external" :size="14" />
-          </a>
+        </div>
+        <div class="relative mt-6 grid gap-4">
+          <figure v-for="photo in cybersciPhotos" :key="photo.src" class="min-w-0">
+            <img
+              :src="photo.src"
+              :alt="photo.alt"
+              :width="photo.width"
+              :height="photo.height"
+              loading="lazy"
+              class="w-full rounded-xl border border-line"
+              :class="
+                photo.contain
+                  ? 'bg-white object-contain p-3 sm:p-5'
+                  : 'aspect-[16/9] object-cover object-[center_40%]'
+              "
+            />
+            <figcaption class="mt-2 font-mono text-[11px] text-faint">
+              {{ photo.caption }}
+            </figcaption>
+          </figure>
         </div>
       </div>
 
@@ -144,5 +155,5 @@
 </template>
 
 <script setup lang="ts">
-import { competitions, credentials, securityPractice } from "~/data/site";
+import { competitions, credentials, cybersciPhotos, securityPractice } from "~/data/site";
 </script>

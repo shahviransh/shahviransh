@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 const description =
-  "Viransh Shah - Computer Science graduate from McMaster University working across full-stack development and defensive security. Federal co-op developer, CyberSci 2025 national runner-up.";
+  "Viransh Shah - Computer Science graduate from McMaster University working across full-stack development and defensive security. Federal co-op developer, CyberSci 2025 Toronto runner-up and 3rd in Canada.";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",

@@ -34,7 +34,7 @@ export const profile = {
   intro:
     "I build software that has to hold up in production and in front of an attacker. Over 12 months of federal co-op I shipped a cross-platform watershed analytics platform used by Environment and Climate Change Canada scientists, and I spend the rest of my time on the defensive side - triaging alerts, reading packet captures, and competing in CTFs.",
   secondary:
-    "Most recently I placed 2nd nationally at CyberSci 2025 with MacHackers. I care about the seam between the two disciplines: code reviewed like an attacker will read it, and investigations run by someone who knows how the system was built.",
+    "Most recently I placed 2nd in Toronto and 3rd in Canada at CyberSci Regional Finals 2025 with MacHackers. I care about the seam between the two disciplines: code reviewed like an attacker will read it, and investigations run by someone who knows how the system was built.",
   resumes: [
     {
       label: "Software Development",
@@ -63,7 +63,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2nd", label: "Nationally, CyberSci 2025", detail: "MacHackers" },
+  { value: "2nd", label: "Toronto, CyberSci 2025", detail: "3rd in Canada · MacHackers" },
   { value: "12 mo", label: "Federal software co-op", detail: "ECCC & CWA" },
   { value: "3.7", label: "GPA / Dean's Honours", detail: "A+ in security courses" },
   { value: "65+", label: "TryHackMe rooms", detail: "Defensive + offensive" },
@@ -89,6 +89,24 @@ export interface ExperienceEntry {
   stack: string[];
   links?: { label: string; href: string }[];
 }
+
+export const cybersciPhotos = [
+  {
+    src: "/images/cybersci-2025-toronto-2nd.jpg",
+    alt: "MacHackers holding certificates at CyberSci Regional Finals 2025 in Toronto",
+    caption: "MacHackers at CyberSci Regional Finals 2025",
+    width: 2560,
+    height: 1920,
+  },
+  {
+    src: "/images/cybersci-2025-toronto-score.jpg",
+    alt: "CyberSci 2025 Toronto region standings. MacHackers placed 2nd with 2336 points.",
+    caption: "Toronto region standings — 2nd with 2336 points",
+    width: 953,
+    height: 596,
+    contain: true,
+  },
+];
 
 export const experience: ExperienceEntry[] = [
   {
@@ -116,18 +134,12 @@ export const experience: ExperienceEntry[] = [
     location: "Hamilton, Ontario",
     kind: "Leadership",
     bullets: [
-      "Placed 2nd nationally as MacHackers at CyberSci 2025 against top Canadian university teams.",
+      "Placed 2nd in Toronto and 3rd in Canada as MacHackers at CyberSci Regional Finals 2025 against top Canadian university teams.",
       "Reconstructed attack chains from PCAP captures, memory images, and file metadata using Wireshark, tcpdump, and CyberChef.",
       "Cracked weak and reused password hashes with John the Ripper, and reproduced brute-force and password-spraying traffic with Hydra to study its detection signature.",
       "Competed across cryptography, web exploitation, forensics, and binary exploitation, plus Advent of Cyber and CyberStart Canada.",
     ],
     stack: ["Wireshark", "tcpdump", "CyberChef", "Nmap", "Metasploit", "Burp Suite", "Kali Linux"],
-    links: [
-      {
-        label: "CyberSci 2025 photo",
-        href: "https://cybersecuritychallenge.ca/wp-content/uploads/2025/11/toronto-2nd-scaled.jpg",
-      },
-    ],
   },
   {
     org: "McMaster University",
@@ -442,7 +454,11 @@ export const securityPractice = [
 ];
 
 export const competitions = [
-  { name: "CyberSci 2025 National Finals", result: "2nd nationally - MacHackers", year: "2025" },
+  {
+    name: "CyberSci Regional Finals 2025",
+    result: "2nd in Toronto · 3rd in Canada - MacHackers",
+    year: "2025",
+  },
   { name: "Advent of Cyber", result: "Completed", year: "2024 & 2025" },
   { name: "CyberStart Canada", result: "Competed", year: "2025" },
 ];
