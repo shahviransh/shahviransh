@@ -79,6 +79,7 @@
   --animate-caret: caret 1.05s step-end infinite;
   --animate-float: float 7s ease-in-out infinite;
   --animate-pulse-ring: pulse-ring 2.6s ease-out infinite;
+  --animate-logo-ping: logo-ping 1.15s ease-out infinite;
   --animate-sweep: sweep 3.2s ease-in-out infinite;
   --animate-drift: drift 22s linear infinite;
   --animate-menu-in: menu-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -91,8 +92,18 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5.35rem;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  main > section[id]:not(#home) {
+    scroll-margin-top: -6rem;
+  }
+
+  @media (min-width: 768px) {
+    main > section[id]:not(#home) {
+      scroll-margin-top: -8rem;
+    }
   }
 
   body {
@@ -272,6 +283,17 @@
     opacity: 0;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes logo-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.85);
     opacity: 0;
   }
 }

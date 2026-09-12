@@ -8,20 +8,26 @@
     "
   >
     <div class="container-page flex h-18 items-center justify-between gap-4">
-      <a href="#home" class="group flex items-center gap-2.5" @click="close">
-        <span
-          class="relative size-9 overflow-hidden rounded-full border border-accent/40"
-        >
-          <img
-            src="/Profile.jpg"
-            :alt="profile.name"
-            width="36"
-            height="36"
-            class="size-full object-cover"
+      <a
+        href="#home"
+        class="group flex items-center gap-2.5"
+        :aria-label="`${profile.name} — home`"
+        @click="close"
+      >
+        <span class="relative grid size-10 place-items-center">
+          <span
+            class="pointer-events-none absolute inset-0 rounded-xl border-2 border-accent opacity-0 group-hover:animate-logo-ping group-focus-visible:animate-logo-ping"
+            aria-hidden="true"
           />
           <span
-            class="absolute inset-0 rounded-full border border-accent/60 opacity-0 transition-opacity group-hover:animate-pulse-ring group-hover:opacity-100"
+            class="pointer-events-none absolute inset-0 rounded-xl border-2 border-accent opacity-0 group-hover:animate-logo-ping group-focus-visible:animate-logo-ping [animation-delay:380ms]"
+            aria-hidden="true"
           />
+          <span
+            class="relative z-10 grid size-full place-items-center overflow-hidden rounded-xl border-2 border-accent/55 bg-accent/10 p-[3px] transition-[border-color,box-shadow] duration-200 group-hover:border-accent group-hover:shadow-[0_0_14px_color-mix(in_oklab,var(--c-accent)_50%,transparent)] group-focus-visible:border-accent"
+          >
+            <BrandMark decorative />
+          </span>
         </span>
         <span class="hidden font-mono text-sm text-muted sm:block">
           <span class="text-accent">~/</span>{{ profile.handle }}

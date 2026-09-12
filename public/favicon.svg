@@ -1,20 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Viransh Shah</title>
   <style>
     .bg { fill: #f6f8fc; }
-    .fg { fill: #0d9488; }
+    .frame { stroke: #0d9488; }
+    .left { fill: #4f46e5; }
+    .right { fill: #0d9488; }
+    .top { fill: #818cf8; }
+    .spark { fill: #0c1220; }
+    .stop-l { stop-color: #4f46e5; }
+    .stop-r { stop-color: #0d9488; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #05080f; }
-      .fg { fill: #2dd4bf; }
+      .frame { stroke: #2dd4bf; }
+      .left { fill: #818cf8; }
+      .right { fill: #2dd4bf; }
+      .top { fill: #e0e7ff; }
+      .spark { fill: #f8fafd; }
+      .stop-l { stop-color: #818cf8; }
+      .stop-r { stop-color: #2dd4bf; }
     }
   </style>
-  <rect class="bg" width="32" height="32" rx="8"/>
-  <text
-    x="16"
-    y="21.5"
-    text-anchor="middle"
-    font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-    font-size="13"
-    font-weight="700"
-    class="fg"
-  >VS</text>
+  <defs>
+    <linearGradient id="v-ring" x1="6" y1="8" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop class="stop-l" offset="0"/>
+      <stop class="stop-r" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect class="bg frame" x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke-width="3"/>
+  <g transform="translate(32 32) scale(.84) translate(-32 -32)">
+    <path fill="url(#v-ring)" fill-rule="evenodd" d="M5 7.5h17.5L32 33.5 41.5 7.5H59L32 59Zm9.5 5.7h11.7L32 28.2 37.8 13.2h11.7L32 47.2Z"/>
+    <path class="left" d="M22.4 15.2 32 39 32 25.2Z"/>
+    <path class="right" d="M41.6 15.2 32 39 32 25.2Z"/>
+    <path class="top" d="M22.4 15.2h19.2L32 25.2Z"/>
+    <path class="spark" d="m32 50.8 2.1 3.4L32 55.6l-2.1-1.4Z"/>
+  </g>
 </svg>
