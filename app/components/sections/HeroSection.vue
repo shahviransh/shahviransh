@@ -28,23 +28,34 @@
             Recent grad - open to SWE & security roles
           </p>
 
-          <h1
-            v-reveal="80"
-            class="mt-6 font-display text-4xl leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
-          >
-            <span class="block text-muted text-2xl font-medium sm:text-3xl">Hi, I'm</span>
-            <span class="text-gradient">{{ profile.name }}</span>
-          </h1>
-
-          <!-- Fixed height keeps the layout still while the role scrambles. -->
-          <p
-            v-reveal="140"
-            class="mt-5 flex min-h-8 items-center gap-2 font-mono text-lg sm:text-xl"
-          >
-            <span class="text-accent">&gt;</span>
-            <span class="text-ink">{{ role }}</span>
-            <span class="animate-caret text-accent" aria-hidden="true">▌</span>
-          </p>
+          <div class="mt-6 flex items-center gap-5 sm:gap-6">
+            <img
+              v-reveal="40"
+              src="/Profile.jpg"
+              :alt="profile.name"
+              width="176"
+              height="176"
+              class="size-32 shrink-0 rounded-full border-2 border-accent/40 object-cover sm:size-36 lg:size-44"
+            />
+            <div class="min-w-0">
+              <h1
+                v-reveal="80"
+                class="font-display text-4xl leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+              >
+                <span class="block text-muted text-2xl font-medium sm:text-3xl">Hi, I'm</span>
+                <span class="text-gradient">{{ profile.name }}</span>
+              </h1>
+              <!-- Fixed height keeps the layout still while the role scrambles. -->
+              <p
+                v-reveal="140"
+                class="mt-4 flex min-h-8 items-center gap-2 font-mono text-lg sm:text-xl"
+              >
+                <span class="text-accent">&gt;</span>
+                <span class="text-ink">{{ role }}</span>
+                <span class="animate-caret text-accent" aria-hidden="true">▌</span>
+              </p>
+            </div>
+          </div>
 
           <p v-reveal="200" class="mt-6 max-w-xl text-base/relaxed text-muted sm:text-lg/relaxed">
             {{ profile.intro }}

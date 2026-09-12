@@ -10,11 +10,17 @@
     <div class="container-page flex h-18 items-center justify-between gap-4">
       <a href="#home" class="group flex items-center gap-2.5" @click="close">
         <span
-          class="relative grid size-9 place-items-center rounded-lg border border-accent/40 bg-accent/10 font-mono text-sm font-bold text-accent"
+          class="relative size-9 overflow-hidden rounded-full border border-accent/40"
         >
-          VS
+          <img
+            src="/Profile.jpg"
+            :alt="profile.name"
+            width="36"
+            height="36"
+            class="size-full object-cover"
+          />
           <span
-            class="absolute inset-0 rounded-lg border border-accent/60 opacity-0 transition-opacity group-hover:animate-pulse-ring group-hover:opacity-100"
+            class="absolute inset-0 rounded-full border border-accent/60 opacity-0 transition-opacity group-hover:animate-pulse-ring group-hover:opacity-100"
           />
         </span>
         <span class="hidden font-mono text-sm text-muted sm:block">
