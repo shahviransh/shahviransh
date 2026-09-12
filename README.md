@@ -159,4 +159,4 @@ npm run generate # static build used by GitHub Pages
 npm run preview
 ```
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the site and pushes it to `shahviransh/shahviransh.github.io`, which GitHub serves at `https://shahviransh.github.io`. That deploy uses the same `RESUME` secret as resume sync (a PAT that can write to your repos).
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the site and pushes it to `shahviransh/shahviransh.github.io`, which GitHub serves at `https://shahviransh.github.io`. That deploy uses the `RESUME` secret (a PAT that can write to `shahviransh.github.io`).

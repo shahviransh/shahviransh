@@ -444,5 +444,5 @@ export const securityPractice = [
 export const competitions = [
   { name: "CyberSci 2025 National Finals", result: "2nd nationally - MacHackers", year: "2025" },
   { name: "Advent of Cyber", result: "Completed", year: "2024 & 2025" },
-  { name: "CyberStart Canada", result: "Competed", year: "2024" },
+  { name: "CyberStart Canada", result: "Competed", year: "2025" },
 ];
