@@ -101,7 +101,7 @@ export const cybersciPhotos = [
   {
     src: "/images/cybersci-2025-toronto-score.jpg",
     alt: "CyberSci 2025 Toronto region standings. MacHackers placed 2nd with 2336 points.",
-    caption: "Toronto region standings — 2nd with 2336 points",
+    caption: "Toronto region standings - 2nd with 2336 points",
     width: 953,
     height: 596,
     contain: true,
@@ -353,25 +353,6 @@ export const projects: Project[] = [
     links: [{ label: "Repository", href: "https://github.com/shahviransh/textbook-mcp-server" }],
   },
   {
-    name: "Watershed Data Dashboard",
-    tagline: "Geospatial dashboard split across three services",
-    period: "2024",
-    summary:
-      "The prototype that preceded IMWEBs Viewer: a Vue dashboard, a Flask API reading SQLite and shapefiles, and a GeoServer-backed Leaflet map, each deployed independently.",
-    bullets: [
-      "Interactive subbasin selection drives line and pie charts rendered from API responses.",
-      "Draggable panel directive and Leaflet overlays let users compare map features against time series side by side.",
-      "Deployed to Vercel as separate front-end and Python API services.",
-    ],
-    stack: ["Vue 3", "Flask", "Leaflet", "GeoServer", "Chart.js", "Vercel"],
-    categories: ["fullstack"],
-    links: [
-      { label: "Frontend", href: "https://github.com/shahviransh/ECCC-Assignment-Frontend" },
-      { label: "Backend", href: "https://github.com/shahviransh/ECCC-Assignment-Backend" },
-      { label: "GeoServer", href: "https://github.com/shahviransh/ECCC-Assignment-Geoserver" },
-    ],
-  },
-  {
     name: "20 Newsgroups Annotation Study",
     tagline: "Measuring inter-annotator agreement",
     period: "COMPSCI 4NL3",
@@ -400,6 +381,25 @@ export const projects: Project[] = [
     stack: ["Python", "Google APIs", "BeautifulSoup", "Docker"],
     categories: ["tools"],
     links: [{ label: "Repository", href: "https://github.com/shahviransh/GoogleAPIsProject" }],
+  },
+  {
+    name: "Watershed Data Dashboard",
+    tagline: "Geospatial dashboard split across three services",
+    period: "2024",
+    summary:
+      "The prototype that preceded IMWEBs Viewer: a Vue dashboard, a Flask API reading SQLite and shapefiles, and a GeoServer-backed Leaflet map, each deployed independently.",
+    bullets: [
+      "Interactive subbasin selection drives line and pie charts rendered from API responses.",
+      "Draggable panel directive and Leaflet overlays let users compare map features against time series side by side.",
+      "Deployed to Vercel as separate front-end and Python API services.",
+    ],
+    stack: ["Vue 3", "Flask", "Leaflet", "GeoServer", "Chart.js", "Vercel"],
+    categories: ["fullstack"],
+    links: [
+      { label: "Frontend", href: "https://github.com/shahviransh/ECCC-Assignment-Frontend" },
+      { label: "Backend", href: "https://github.com/shahviransh/ECCC-Assignment-Backend" },
+      { label: "GeoServer", href: "https://github.com/shahviransh/ECCC-Assignment-Geoserver" },
+    ],
   },
 ];
 
