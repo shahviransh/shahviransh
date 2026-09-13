@@ -30,8 +30,8 @@ jobs:
 
           git -C mcmaster sparse-checkout set "Resume Software" "Resume Security"
 
-          software="mcmaster/Resume Software/Viransh-Shah-Resume-Software-Development.pdf"
-          security="mcmaster/Resume Security/Viransh-Shah-Resume-Security.pdf"
+          software="mcmaster/Resume Software/Resume.pdf"
+          security="mcmaster/Resume Security/Resume.pdf"
 
           if [ ! -s "$software" ] || [ ! -s "$security" ]; then
             echo "Expected resume PDFs were not in the sparse checkout:"
