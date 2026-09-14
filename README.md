@@ -8,7 +8,7 @@
 
 <p align="left">
   <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=shahviransh&theme=onedark" alt="shahviransh" />
+    <img src="https://trophy.ryglcloud.net/?username=shahviransh&theme=onedark" alt="shahviransh" />
   </a>
 </p>
 
@@ -100,11 +100,11 @@
   </a>
 </p>
 
-[![Viransh's GitHub stats](https://github-readme-stats.vercel.app/api?username=shahviransh&show_icons=true&theme=tokyonight)](https://github.com/shahviransh)
+[![Viransh's GitHub stats](https://github-stats-extended.vercel.app/api?username=shahviransh&show_icons=true&theme=tokyonight)](https://github.com/shahviransh)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=shahviransh&show_icons=true&theme=onedark)](https://github.com/shahviransh)
+[![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=shahviransh&show_icons=true&theme=onedark)](https://github.com/shahviransh)
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=shahviransh&theme=tokyonight" alt="shahviransh" /></p>
+<p><img align="center" src="https://streak-stats.demolab.com/?user=shahviransh&theme=tokyonight" alt="shahviransh" /></p>
 
 ---
 
