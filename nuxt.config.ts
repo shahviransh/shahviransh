@@ -3,6 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 const description =
   "Viransh Shah - Computer Science graduate from McMaster University working across full-stack development and defensive security. Federal co-op developer, CyberSci 2025 Toronto runner-up and 3rd in Canada.";
+const siteUrl = "https://shahviransh.github.io";
+const ogImage = `${siteUrl}/og-image.png`;
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -20,9 +22,17 @@ export default defineNuxtConfig({
         { name: "theme-color", content: "#05080f", media: "(prefers-color-scheme: dark)" },
         { name: "theme-color", content: "#f6f8fc", media: "(prefers-color-scheme: light)" },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: siteUrl },
         { property: "og:title", content: "Viransh Shah - Software Developer & Security Analyst" },
         { property: "og:description", content: description },
+        { property: "og:image", content: ogImage },
+        { property: "og:image:secure_url", content: ogImage },
+        { property: "og:image:type", content: "image/png" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "627" },
+        { property: "og:image:alt", content: "Viransh Shah" },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: ogImage },
       ],
       link: [
         { rel: "icon", href: "/favicon.svg?v=4", type: "image/svg+xml" },
