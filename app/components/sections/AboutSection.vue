@@ -89,7 +89,7 @@
             </div>
           </TerminalWindow>
 
-          <div v-reveal:right="220" class="card-surface mt-5 p-5">
+          <div v-reveal="220" class="card-surface mt-5 p-5">
             <p class="mb-3 font-mono text-[11px] tracking-widest text-faint uppercase">
               Outside the terminal
             </p>

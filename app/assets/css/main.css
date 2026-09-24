@@ -112,7 +112,11 @@
     font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    /* Last line of defence against a stray horizontal scrollbar. `clip` rather
+       than `hidden` so it never becomes a scroll container - `hidden` here lets
+       mobile browsers widen the layout viewport instead, which knocks the fixed
+       header out of alignment with the screen. */
+    overflow-x: clip;
   }
 
   /* Colour transitions only fire once the theme actually changes, so the
@@ -239,6 +243,16 @@
 .js [data-reveal].is-revealed {
   opacity: 1;
   transform: none;
+}
+
+/* Sideways reveals belong to the two-column desktop layouts, where the
+   container gutter absorbs the offset. Once those columns stack there is no
+   gutter to spare, so slide up instead of past the edge. */
+@media (max-width: 1023px) {
+  .js [data-reveal="left"],
+  .js [data-reveal="right"] {
+    transform: translate3d(0, 22px, 0);
+  }
 }
 
 /* ---------------------------------------------------------------------------

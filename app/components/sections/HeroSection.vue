@@ -45,14 +45,21 @@
                 <span class="block text-muted text-2xl font-medium sm:text-3xl">Hi, I'm</span>
                 <span class="text-gradient">{{ profile.name }}</span>
               </h1>
-              <!-- Fixed height keeps the layout still while the role scrambles. -->
+              <!-- Fixed height keeps the layout still while the role scrambles.
+                   Narrow screens reserve two lines, since the longer roles wrap
+                   beside the portrait. -->
               <p
                 v-reveal="140"
-                class="mt-4 flex min-h-8 items-center gap-2 font-mono text-lg sm:text-xl"
+                class="mt-4 flex min-h-14 items-center gap-2 font-mono text-lg sm:min-h-8 sm:text-xl"
               >
                 <span class="text-accent">&gt;</span>
-                <span class="text-ink">{{ role }}</span>
-                <span class="animate-caret text-accent" aria-hidden="true">▌</span>
+                <!-- The caret lives inside the text so it trails the last
+                     character even when a longer role wraps. -->
+                <span class="text-ink"
+                  >{{ role }}<span class="animate-caret text-accent" aria-hidden="true"
+                    >▌</span
+                  ></span
+                >
               </p>
             </div>
           </div>
