@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-// Built on a native <details> so the résumés stay reachable and keyboard
+// Built on a native <details> so the resumes stay reachable and keyboard
 // operable even before hydration. The handlers below only add the two things
 // <details> lacks: outside-click and Escape dismissal.
 import { profile } from "~/data/site";

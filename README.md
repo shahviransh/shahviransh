@@ -146,9 +146,9 @@ Colours are CSS custom properties on `:root` and `.dark`, mapped into Tailwind t
 - Every animation is gated behind `prefers-reduced-motion`.
 - Scroll-reveal is scoped to `html.js`, so content is never hidden without JavaScript, and falls back to showing everything if `IntersectionObserver` reports nothing.
 
-## Résumés
+## Resumes
 
-The two résumé PDFs in `public/` are pulled from the private `McMaster-University` repo (`Resume Software/` and `Resume Security/`) by [`.github/workflows/sync.yml`](.github/workflows/sync.yml). That workflow is dispatched when those PDFs change.
+The two resume PDFs in `public/` are pulled from the private `McMaster-University` repo (`Resume Software/` and `Resume Security/`) by [`.github/workflows/sync.yml`](.github/workflows/sync.yml). That workflow is dispatched when those PDFs change.
 
 ## Development
 
