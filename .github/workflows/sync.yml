@@ -63,3 +63,8 @@ jobs:
 
           git commit -m "Sync resume PDFs from McMaster-University"
           git push origin HEAD
+
+  deploy:
+    needs: sync
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
