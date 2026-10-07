@@ -19,8 +19,8 @@ export const profile = {
   headline: "Software Developer & Security Analyst",
   roles: [
     "Full-Stack Developer",
-    "Security Analyst",
-    "Incident Responder",
+    "Aspiring Security Analyst",
+    "Aspiring Incident Responder",
     "CTF Competitor",
   ],
   degree: "B.A.Sc. Computer Science, Minor in Statistics",
