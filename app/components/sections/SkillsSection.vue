@@ -73,7 +73,9 @@ const base = [
   "Wireshark",
   "Python",
   "Vue.js",
+  "React Native",
   "Flask",
+  "FastAPI",
   "TypeScript",
   "Active Directory",
   "Tauri",
@@ -84,6 +86,7 @@ const base = [
   "PostgreSQL",
   "GitHub Actions",
   "Kali Linux",
+  "Claude Code",
 ];
 
 const ticker = [...base, ...base];
