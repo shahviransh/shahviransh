@@ -34,7 +34,7 @@ export const profile = {
   intro:
     "I build software that has to hold up in production and in front of an attacker. Over 12 months of federal co-op I shipped a cross-platform watershed analytics platform used by Environment and Climate Change Canada scientists, and I spend the rest of my time on the defensive side - triaging alerts, reading packet captures, and competing in CTFs.",
   secondary:
-    "Most recently I placed 2nd in Toronto and 3rd in Canada at CyberSci Regional Finals 2025 with MacHackers. I care about the seam between the two disciplines: code reviewed like an attacker will read it, and investigations run by someone who knows how the system was built.",
+    "Most recently I placed 2nd in Toronto and 3rd at CyberSci Regional Finals 2025 with MacHackers. I care about the seam between the two disciplines: code reviewed like an attacker will read it, and investigations run by someone who knows how the system was built.",
   resumes: [
     {
       label: "Software Development",
@@ -63,7 +63,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2nd", label: "Toronto, CyberSci 2025", detail: "3rd in Canada · MacHackers" },
+  { value: "2nd", label: "Toronto, CyberSci 2025", detail: "3rd at Regional Finals · MacHackers" },
   { value: "12 mo", label: "Federal software co-op", detail: "ECCC & CWA" },
   { value: "3.7", label: "GPA / Dean's Honours", detail: "A+ in security courses" },
   { value: "65+", label: "TryHackMe rooms", detail: "Defensive + offensive" },
@@ -167,6 +167,7 @@ export const experience: ExperienceEntry[] = [
     kind: "Leadership",
     bullets: [
       "Placed 3rd as MacHackers at CyberSci Regional Finals 2025 and 2nd in Toronto against top Canadian university teams; also competed in Advent of Cyber and CyberStart Canada.",
+      "Competed across forensics, web exploitation, cryptography, binary exploitation, OSINT, and miscellaneous challenges.",
       "Reconstructed attack chains from PCAP captures, memory images, and file metadata using Wireshark, tcpdump, and CyberChef.",
       "Cracked weak and reused password hashes with John the Ripper and reproduced brute-force and password-spraying traffic with Hydra to study its detection signature; exploited SQL injection and authentication bypass.",
     ],
@@ -194,7 +195,8 @@ export const education = {
   period: "Sept 2021 - June 2026",
   location: "Hamilton, Ontario",
   highlights: [
-    "Dean's Honours List (GPA 3.7 / 4.0)",
+    "Conferred With Distinction (16 June 2026), Dean's Honours List (GPA 3.7 / 4.0)",
+    "Faculty of Engineering Achievement Award",
     "A+ in Databases, Data Structures & Algorithms, Information Security, and Computer Networks & Security",
   ],
 };
@@ -242,6 +244,7 @@ export const skillGroups = [
     blurb: "Core programming, scripting, and querying languages.",
     items: [
       "Python",
+      "Rust",
       "PowerShell",
       "Bash",
       "SQL",
@@ -382,18 +385,17 @@ export const projects: Project[] = [
     tagline: "Two-stage ensemble over 1.47M transactions",
     period: "COMPSCI 4AL3",
     summary:
-      "Binary classifier for fraudulent e-commerce transactions on a severely imbalanced dataset, combining recall-optimised and precision-optimised models into a weighted ensemble.",
+      "Team fraud classifier on 1.47 million e-commerce transactions. The group's weighted ensemble reached 26.3% precision, 61.3% recall, an F1 of 0.368, and 0.877 AUC-ROC on held-out data.",
     bullets: [
-      "52+ engineered features covering temporal patterns, behavioural aggregates, and interaction terms, with ADASYN resampling applied without leaking across the train-test split.",
-      "Logistic Regression and Random Forest catch candidates; a 5-layer neural network with focal loss and GPU XGBoost validate them.",
-      "Final ensemble reached 61.3% recall at 26.3% precision and 0.877 AUC-ROC; checkpoints published to Hugging Face.",
+      "Led feature engineering: 52+ temporal, behavioural, and interaction features, including the New Account High Value term, plus the ADASYN resampling pipeline.",
+      "Built the configurable cost-based threshold optimizer, the GPU training path with PyTorch and RAPIDS cuML, and the tuned XGBoost model.",
+      "Ran the customer-location leakage analysis. A teammate owned the 5-layer focal-loss network and the weighted ensemble that produced the held-out numbers.",
     ],
     stack: ["PyTorch", "XGBoost", "RAPIDS cuML", "scikit-learn", "ADASYN", "Hugging Face"],
     categories: ["ml"],
     featured: true,
     links: [
-      { label: "Repository", href: "https://github.com/shahviransh/compsci-4al3-project" },
-      { label: "Models", href: "https://huggingface.co/shahviransh/fraud-detection", icon: "model" },
+      { label: "Repository", href: "https://github.com/shahviransh/COMPSCI-4AL3-Project" },
     ],
   },
   {
@@ -423,24 +425,24 @@ export const projects: Project[] = [
       "Defensive configuration by default: file-type validation, page and file-size limits, per-tool rate limiting, and a non-root container.",
       "Ships as a Docker image wired into the Docker MCP toolkit.",
     ],
-    stack: ["Python", "MCP", "Docker", "Tesseract OCR", "PyMuPDF"],
+    stack: ["Python", "MCP", "Docker", "Tesseract OCR", "PyPDF2", "pdfplumber", "Hugging Face Transformers", "NLTK"],
     categories: ["tools", "security"],
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/textbook-mcp-server" }],
+    links: [{ label: "Repository", href: "https://github.com/shahviransh/Textbook-MCP-Server" }],
   },
   {
     name: "20 Newsgroups Annotation Study",
     tagline: "Measuring inter-annotator agreement",
     period: "COMPSCI 4NL3",
     summary:
-      "Annotation pipeline for a group NLP study: sampling documents per annotator, exporting labels, scoring agreement, and driving a structured re-annotation round.",
+      "Group annotation pipeline for the 20 Newsgroups corpus: 18,000+ train and test documents across 20 topics, with assignment, autosave, and a second annotation pass.",
     bullets: [
-      "Agreement scoring highlights the label pairs that annotators actually disagreed on, rather than a single summary statistic.",
-      "Re-annotation tooling regenerates targeted task sets so guidelines can be revised and retested.",
-      "Reproducible Conda environment and report generation for the write-up.",
+      "Python interface for document assignment, progress tracking, autosaved backups, and category-aware review.",
+      "Agreement scoring with Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha, plus a re-annotation pass so guidelines can be revised and retested.",
+      "Reproducible Conda environment for the annotation and agreement scripts.",
     ],
     stack: ["Python", "pandas", "scikit-learn", "Conda"],
     categories: ["ml"],
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/compsci-4nl3-project" }],
+    links: [{ label: "Repository", href: "https://github.com/shahviransh/COMPSCI-4NL3-Project" }],
   },
   {
     name: "Media Toolkit",
@@ -531,7 +533,7 @@ export const securityPractice = [
 export const competitions = [
   {
     name: "CyberSci Regional Finals 2025",
-    result: "2nd in Toronto · 3rd in Canada - MacHackers",
+    result: "2nd in Toronto · 3rd at Regional Finals - MacHackers",
     year: "2025",
   },
   { name: "Advent of Cyber", result: "Completed", year: "2024 & 2025" },

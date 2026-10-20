@@ -27,12 +27,13 @@
               CyberSci Regional Finals 2025
             </p>
             <h3 class="mt-2 font-display text-2xl font-bold text-balance sm:text-3xl">
-              2nd in Toronto, 3rd in Canada with
+              2nd in Toronto, 3rd at Regional Finals with
               <span class="text-gradient-accent">MacHackers</span>
             </h3>
             <p class="mt-2 max-w-2xl text-sm/relaxed text-muted">
-              Competing against the top Canadian university teams across forensics, network
-              analysis, cryptography, web exploitation, and binary exploitation - under a clock.
+              Competing against the top Canadian university teams across forensics, web
+              exploitation, cryptography, binary exploitation, OSINT, and miscellaneous
+              challenges - under a clock.
             </p>
           </div>
         </div>
