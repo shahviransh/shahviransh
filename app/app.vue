@@ -17,14 +17,15 @@
     <main>
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
       <ExperienceSection />
       <ProjectsSection />
       <SecuritySection />
+      <SkillsSection />
       <ContactSection />
     </main>
 
     <TheFooter />
+    <CommandPalette />
   </div>
 </template>
 

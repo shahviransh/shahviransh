@@ -4,51 +4,53 @@
 
 /* ---------------------------------------------------------------------------
    Palette
-   Light mode is a clean "documentation" surface; dark mode is a terminal.
-   Both share the same semantic token names so components never branch.
+   Dark mode is the main event: near-black with an "electric cyan" accent, a
+   violet secondary for the build side and a hot red for alerts. Light mode
+   keeps the same token names so components never branch.
 --------------------------------------------------------------------------- */
 :root {
-  --c-bg: #f6f8fc;
-  --c-bg-alt: #eef2f8;
+  --c-bg: #f3f6f9;
+  --c-bg-alt: #eaf0f5;
   --c-surface: #ffffff;
-  --c-surface-alt: #f8fafd;
-  --c-border: #dde4ee;
-  --c-border-strong: #c3cddd;
-  --c-text: #0c1220;
-  --c-text-muted: #55637a;
-  --c-text-faint: #8493aa;
-  --c-accent: #0d9488;
-  --c-accent-soft: #99f6e4;
+  --c-surface-alt: #f5f8fb;
+  --c-border: #d6dfe8;
+  --c-border-strong: #b6c4d2;
+  --c-text: #0a1018;
+  --c-text-muted: #4b5a69;
+  --c-text-faint: #7d8c9b;
+  --c-accent: #0891b2;
+  --c-accent-soft: #a5f3fc;
   --c-accent-contrast: #ffffff;
-  --c-cyber: #4f46e5;
-  --c-danger: #dc2626;
-  --c-warn: #d97706;
-  --c-grid: rgba(13, 148, 136, 0.08);
-  --c-glow: rgba(13, 148, 136, 0.09);
-  --shadow-card: 0 1px 2px rgba(12, 18, 32, 0.04), 0 8px 24px -12px rgba(12, 18, 32, 0.12);
-  --shadow-card-hover: 0 1px 2px rgba(12, 18, 32, 0.05), 0 20px 48px -16px rgba(12, 18, 32, 0.22);
+  --c-cyber: #7c3aed;
+  --c-danger: #e11d48;
+  --c-warn: #b45309;
+  --c-grid: rgba(8, 145, 178, 0.07);
+  --c-glow: rgba(8, 145, 178, 0.1);
+  --shadow-card: 0 1px 2px rgba(10, 16, 24, 0.04), 0 8px 24px -12px rgba(10, 16, 24, 0.12);
+  --shadow-card-hover: 0 1px 2px rgba(10, 16, 24, 0.05), 0 20px 48px -16px rgba(10, 16, 24, 0.22);
 }
 
 .dark {
-  --c-bg: #05080f;
-  --c-bg-alt: #080d17;
-  --c-surface: #0b1220;
-  --c-surface-alt: #101a2b;
-  --c-border: #1c2839;
-  --c-border-strong: #2c3d54;
-  --c-text: #e4ecf7;
-  --c-text-muted: #93a3ba;
-  --c-text-faint: #64748b;
-  --c-accent: #2dd4bf;
-  --c-accent-soft: #134e4a;
-  --c-accent-contrast: #04121a;
-  --c-cyber: #818cf8;
-  --c-danger: #f87171;
-  --c-warn: #fbbf24;
-  --c-grid: rgba(45, 212, 191, 0.07);
-  --c-glow: rgba(45, 212, 191, 0.14);
+  --c-bg: #05070a;
+  --c-bg-alt: #080b10;
+  --c-surface: #0b0f15;
+  --c-surface-alt: #10161f;
+  --c-border: #1a222e;
+  --c-border-strong: #2a3443;
+  --c-text: #e7eef5;
+  --c-text-muted: #94a1b3;
+  --c-text-faint: #5d6a7c;
+  --c-accent: #2ee6ff;
+  --c-accent-soft: #07303a;
+  --c-accent-contrast: #021118;
+  --c-cyber: #b18cff;
+  --c-danger: #ff5d73;
+  --c-warn: #ffc857;
+  --c-grid: rgba(46, 230, 255, 0.055);
+  --c-glow: rgba(46, 230, 255, 0.13);
   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 32px -18px rgba(0, 0, 0, 0.9);
-  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 28px 60px -24px rgba(0, 0, 0, 1);
+  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 28px 60px -24px rgba(0, 0, 0, 1),
+    0 0 0 1px color-mix(in srgb, var(--c-accent) 18%, transparent);
 }
 
 @theme inline {
@@ -75,14 +77,14 @@
   --shadow-card: var(--shadow-card);
   --shadow-lift: var(--shadow-card-hover);
 
-  --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee: marquee 48s linear infinite;
   --animate-caret: caret 1.05s step-end infinite;
-  --animate-float: float 7s ease-in-out infinite;
   --animate-pulse-ring: pulse-ring 2.6s ease-out infinite;
   --animate-logo-ping: logo-ping 1.15s ease-out infinite;
   --animate-sweep: sweep 3.2s ease-in-out infinite;
   --animate-drift: drift 22s linear infinite;
   --animate-menu-in: menu-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-scan: scan 6s linear infinite;
 }
 
 @layer base {
@@ -112,11 +114,21 @@
     font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
-    /* Last line of defence against a stray horizontal scrollbar. `clip` rather
-       than `hidden` so it never becomes a scroll container - `hidden` here lets
-       mobile browsers widen the layout viewport instead, which knocks the fixed
-       header out of alignment with the screen. */
+    /* `clip` rather than `hidden` so it never becomes a scroll container:
+       `hidden` here lets mobile browsers widen the layout viewport instead,
+       which knocks the fixed header out of alignment with the screen. */
     overflow-x: clip;
+  }
+
+  /* Film grain over everything. Fixed so it never repaints on scroll. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   /* Colour transitions only fire once the theme actually changes, so the
@@ -171,14 +183,14 @@
 }
 
 @utility text-gradient {
-  background-image: linear-gradient(105deg, var(--c-text) 8%, var(--c-accent) 52%, var(--c-cyber) 96%);
+  background-image: linear-gradient(105deg, var(--c-text) 10%, var(--c-accent) 55%, var(--c-cyber) 98%);
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
-/* For gradients on a phrase inside a sentence, where fading in from the body
-   text colour would read as a mistake rather than a flourish. */
+/* For a phrase inside a sentence, where fading in from the body text colour
+   would read as a mistake rather than a flourish. */
 @utility text-gradient-accent {
   background-image: linear-gradient(100deg, var(--c-accent), var(--c-cyber));
   background-clip: text;
@@ -192,12 +204,11 @@
   background-size: 46px 46px;
 }
 
-/* Cards get a hairline gradient edge that brightens toward the cursor side. */
 @utility card-surface {
   position: relative;
   background-color: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-radius: 0.9rem;
+  border-radius: 0.6rem;
   box-shadow: var(--shadow-card);
 }
 
@@ -216,6 +227,43 @@
     );
     opacity: 0.5;
     mix-blend-mode: overlay;
+  }
+}
+
+/* RGB-split flicker on hover. The element needs a data-text attribute that
+   repeats its own text content. */
+@utility glitch {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    color: var(--c-danger);
+    -webkit-text-fill-color: var(--c-danger);
+    clip-path: inset(0 0 55% 0);
+  }
+
+  &::after {
+    color: var(--c-cyber);
+    -webkit-text-fill-color: var(--c-cyber);
+    clip-path: inset(45% 0 0 0);
+  }
+
+  &:hover::before {
+    opacity: 0.8;
+    animation: glitch-a 420ms steps(2, end) 2;
+  }
+
+  &:hover::after {
+    opacity: 0.8;
+    animation: glitch-b 420ms steps(2, end) 2;
   }
 }
 
@@ -277,16 +325,6 @@
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(1.5deg);
-  }
-}
-
 @keyframes pulse-ring {
   0% {
     transform: scale(0.85);
@@ -339,6 +377,39 @@
   }
   to {
     background-position: 460px 460px;
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes glitch-a {
+  0% {
+    transform: translate(-3px, 1px);
+  }
+  50% {
+    transform: translate(2px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-b {
+  0% {
+    transform: translate(3px, -1px);
+  }
+  50% {
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 

@@ -2,12 +2,12 @@
   <div class="mb-12 md:mb-16" :class="align === 'center' && 'text-center'">
     <p
       v-reveal
-      class="mb-3 flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-accent uppercase"
-      :class="align === 'center' && 'justify-center'"
+      class="mb-4 inline-flex items-center gap-2 rounded-md border border-line bg-surface/60 px-2.5 py-1 font-mono text-xs text-muted backdrop-blur"
     >
       <span class="text-faint">{{ index }}</span>
-      <span class="h-px w-8 bg-accent/50" />
-      {{ kicker }}
+      <span class="text-accent">~/viransh $</span>
+      <span class="text-ink">{{ command }}</span>
+      <span class="animate-caret text-accent" aria-hidden="true">▌</span>
     </p>
 
     <h2
@@ -32,7 +32,7 @@
 withDefaults(
   defineProps<{
     index: string;
-    kicker: string;
+    command: string;
     title: string;
     description?: string;
     align?: "left" | "center";

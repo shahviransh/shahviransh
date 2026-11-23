@@ -1,53 +1,54 @@
 <template>
-  <section id="skills" class="relative border-t border-line bg-bg-alt py-24 md:py-32">
+  <section id="skills" class="relative border-t border-line py-24 md:py-32">
     <div class="container-page">
       <SectionHeading
-        index="02"
-        kicker="capabilities"
+        index="05"
+        command="cat stack.json"
         title="What I reach for"
-        description="Defensive tooling I use to investigate, offensive tooling I learned to understand detection, and the stack I ship products on."
+        description="One side ships products. The other investigates and breaks them. Most days I use both."
       />
 
-      <div class="grid gap-5 md:grid-cols-2">
+      <div class="grid gap-5 lg:grid-cols-2">
         <article
-          v-for="(group, groupIndex) in skillGroups"
-          :key="group.name"
-          v-reveal:scale="groupIndex * 90"
-          class="card-surface group relative overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lift"
+          v-for="(side, sideIndex) in skillSides"
+          :key="side.id"
+          v-reveal:scale="sideIndex * 120"
+          class="card-surface relative overflow-hidden p-6 sm:p-7"
         >
           <div
-            class="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-accent/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+            class="pointer-events-none absolute -top-24 -right-24 size-56 rounded-full opacity-20 blur-3xl"
+            :style="{ background: sideColor[side.id] }"
+            aria-hidden="true"
           />
-
-          <header class="relative flex items-start gap-3">
-            <span
-              class="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-surface-alt text-accent transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-            >
-              <AppIcon :name="group.icon" :size="20" />
-            </span>
-            <div>
-              <h3 class="font-display text-lg font-semibold">{{ group.name }}</h3>
-              <p class="mt-0.5 text-sm text-muted">{{ group.blurb }}</p>
-            </div>
+          <header class="relative flex items-baseline justify-between gap-4 font-mono">
+            <h3 class="text-lg font-bold" :style="{ color: sideColor[side.id] }">// {{ side.label }}</h3>
+            <p class="text-xs text-faint">{{ side.blurb }}</p>
           </header>
 
-          <ul class="relative mt-5 flex flex-wrap gap-2">
-            <li
-              v-for="(item, itemIndex) in group.items"
-              :key="item"
-              v-reveal="groupIndex * 90 + itemIndex * 28"
-              class="rounded-lg border border-line bg-surface-alt px-2.5 py-1.5 font-mono text-xs text-muted transition-colors hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
-            >
-              {{ item }}
-            </li>
-          </ul>
+          <dl class="relative mt-6 space-y-5">
+            <div v-for="group in side.groups" :key="group.name" class="grid gap-2 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4">
+              <dt class="flex items-center gap-2 pt-1 font-mono text-xs text-muted">
+                <AppIcon :name="group.icon" :size="14" :style="{ color: sideColor[side.id] }" />
+                {{ group.name }}
+              </dt>
+              <dd class="flex flex-wrap gap-1.5">
+                <span
+                  v-for="item in group.items"
+                  :key="item"
+                  class="rounded border border-line bg-surface-alt px-2 py-1 font-mono text-[11px] text-muted transition-colors hover:border-accent/50 hover:text-ink"
+                >
+                  {{ item }}
+                </span>
+              </dd>
+            </div>
+          </dl>
         </article>
       </div>
     </div>
 
     <!-- Infinite ticker: the list is duplicated so the -50% translate loops seamlessly. -->
     <div
-      class="relative mt-14 flex overflow-hidden border-y border-line py-4 select-none [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]"
+      class="relative mt-16 flex overflow-hidden border-y border-line py-4 select-none [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]"
       aria-hidden="true"
     >
       <div class="flex shrink-0 animate-marquee items-center gap-8 pr-8">
@@ -57,7 +58,7 @@
           class="flex items-center gap-8 font-mono text-sm whitespace-nowrap text-faint"
         >
           {{ item }}
-          <span class="size-1 rounded-full bg-accent/50" />
+          <span class="text-accent/50">/</span>
         </span>
       </div>
     </div>
@@ -65,7 +66,9 @@
 </template>
 
 <script setup lang="ts">
-import { skillGroups } from "~/data/site";
+import { skillSides } from "~/data/site";
+
+const sideColor = { build: "var(--c-cyber)", defend: "var(--c-danger)" } as const;
 
 const base = [
   "incident response",
@@ -75,18 +78,16 @@ const base = [
   "Vue.js",
   "React Native",
   "Flask",
-  "FastAPI",
   "TypeScript",
-  "Active Directory",
+  "Rust",
   "Tauri",
   "Docker",
   "Azure",
   "Nmap",
   "Burp Suite",
-  "PostgreSQL",
   "GitHub Actions",
   "Kali Linux",
-  "Claude Code",
+  "TweetNaCl",
 ];
 
 const ticker = [...base, ...base];

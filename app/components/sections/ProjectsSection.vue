@@ -1,19 +1,20 @@
 <template>
-  <section id="projects" class="relative border-t border-line bg-bg-alt py-24 md:py-32">
+  <section id="projects" class="relative border-t border-line py-24 md:py-32">
     <div class="container-page">
       <SectionHeading
-        index="04"
-        kicker="build log"
+        index="03"
+        command="ls ~/projects --sort=impact"
         title="Things I've shipped"
-        description="Production platforms, a capstone with real cryptography in it, machine learning at scale, and the desktop tools I built because I wanted them to exist."
+        description="Production apps, a capstone with real cryptography in it, some ML, and desktop tools I built because I wanted them to exist."
       />
 
-      <div v-reveal class="mb-8 flex flex-wrap items-center gap-2">
+      <div v-reveal class="mb-8 flex flex-wrap items-center gap-2 font-mono text-xs">
+        <span class="mr-1 text-faint">--filter=</span>
         <button
           v-for="filter in projectFilters"
           :key="filter.id"
           type="button"
-          class="relative rounded-xl border px-3.5 py-2 font-mono text-xs transition-all duration-200"
+          class="relative rounded-md border px-3 py-1.5 transition-all duration-200"
           :class="
             active === filter.id
               ? 'border-accent bg-accent/10 text-accent'
@@ -23,13 +24,13 @@
           @click="active = filter.id"
         >
           {{ filter.label }}
-          <span class="ml-1.5 text-faint">{{ countFor(filter.id) }}</span>
+          <span class="ml-1 text-faint">{{ countFor(filter.id) }}</span>
         </button>
       </div>
 
       <TransitionGroup
         tag="div"
-        class="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+        class="relative grid gap-5 md:grid-cols-2 xl:grid-cols-3"
         move-class="transition-transform duration-400 ease-out"
         enter-active-class="transition duration-400 ease-out"
         enter-from-class="opacity-0 scale-95"
@@ -45,7 +46,7 @@
       </TransitionGroup>
 
       <p v-reveal class="mt-10 text-center text-sm text-muted">
-        Everything else - coursework, experiments, and older builds - lives on
+        Coursework, experiments and older builds live on
         <a
           href="https://github.com/shahviransh?tab=repositories"
           target="_blank"

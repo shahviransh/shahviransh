@@ -10,14 +10,18 @@ export function useTextScramble(phrases: string[], options?: { hold?: number; sp
   const output = ref(phrases[0] ?? "");
 
   if (import.meta.client) {
+    const FRAME_MS = 1000 / 60;
     let index = 0;
-    let frame = 0;
+    let start = 0;
     let raf = 0;
     let timer = 0;
 
-    function step(target: string) {
+    function step(target: string, now: number) {
       const chars: string[] = [];
       let locked = 0;
+      start ||= now;
+      // Elapsed time, not frame count, so a throttled tab still finishes.
+      const frame = (now - start) / FRAME_MS;
 
       for (let i = 0; i < target.length; i++) {
         // Characters lock in left to right; everything else keeps churning, so
@@ -34,10 +38,9 @@ export function useTextScramble(phrases: string[], options?: { hold?: number; sp
       }
 
       output.value = chars.join("");
-      frame++;
 
       if (locked < target.length) {
-        raf = requestAnimationFrame(() => step(target));
+        raf = requestAnimationFrame((t) => step(target, t));
       } else {
         output.value = target;
         timer = window.setTimeout(next, hold);
@@ -46,8 +49,8 @@ export function useTextScramble(phrases: string[], options?: { hold?: number; sp
 
     function next() {
       index = (index + 1) % phrases.length;
-      frame = 0;
-      step(phrases[index]!);
+      start = 0;
+      raf = requestAnimationFrame((t) => step(phrases[index]!, t));
     }
 
     onMounted(() => {

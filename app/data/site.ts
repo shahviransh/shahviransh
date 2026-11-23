@@ -17,12 +17,7 @@ export const profile = {
   pronunciation: "Vi-ra-ansh",
   handle: "shahviransh",
   headline: "Software Developer & Security Analyst",
-  roles: [
-    "Full-Stack Developer",
-    "Aspiring Security Analyst",
-    "Aspiring Incident Responder",
-    "CTF Competitor",
-  ],
+  roles: ["Full-Stack Developer", "Aspiring Security Analyst", "CTF Competitor", "Desktop App Tinkerer"],
   degree: "B.A.Sc. Computer Science, Minor in Statistics",
   school: "McMaster University",
   graduated: "June 2026",
@@ -32,20 +27,20 @@ export const profile = {
     { address: "shahv47@mcmaster.ca", label: "McMaster" },
   ],
   intro:
-    "I build software that has to hold up in production and in front of an attacker. Over 12 months of federal co-op I shipped IMWEBs Viewer and Nutri View — cross-platform watershed and water-quality apps used by Environment and Climate Change Canada scientists — and I spend the rest of my time on the defensive side: triaging alerts, reading packet captures, and competing in CTFs.",
+    "I build software, then try to break it. I spent a year as the only developer on two apps for Environment and Climate Change Canada scientists, and most of my free time goes into CTFs, packet captures and log hunting.",
   secondary:
-    "Most recently I placed 2nd in Toronto and 3rd at CyberSci Regional Finals 2025 with MacHackers. I care about the seam between the two disciplines: code reviewed like an attacker will read it, and investigations run by someone who knows how the system was built.",
+    "My team MacHackers took 2nd in Toronto and 3rd at the CyberSci Regional Finals 2025. I write code like someone is going to attack it, because someone usually does.",
   resumes: [
     {
       label: "Software Development",
       href: "/Viransh-Shah-Resume-Software-Development.pdf",
-      hint: "Full-stack, platform, and product work",
+      hint: "Full-stack, desktop and product work",
       icon: "code",
     },
     {
       label: "Security Analyst",
       href: "/Viransh-Shah-Resume-Security.pdf",
-      hint: "SOC, incident response, and detection",
+      hint: "SOC, incident response and detection",
       icon: "shield",
     },
   ],
@@ -63,20 +58,19 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2nd", label: "Toronto, CyberSci 2025", detail: "3rd at Regional Finals · MacHackers" },
-  { value: "12 mo", label: "Federal software co-op", detail: "ECCC & CWA" },
-  { value: "3.7", label: "GPA / Dean's Honours", detail: "A+ in security courses" },
-  { value: "65+", label: "TryHackMe rooms", detail: "Defensive + offensive" },
+  { value: "2nd", label: "CyberSci 2025, Toronto", detail: "3rd at Regional Finals" },
+  { value: "12 mo", label: "Federal co-op", detail: "ECCC & Canada Water Agency" },
+  { value: "3.7", label: "GPA, Dean's Honours", detail: "A+ in Database, DSA, InfoSec & Networks" },
+  { value: "65+", label: "TryHackMe rooms", detail: "Blue and red team" },
 ];
 
 export const whoami = [
   { key: "user", value: "shahviransh" },
-  { key: "role", value: "software developer // security analyst" },
-  { key: "edu", value: "B.A.Sc. Computer Science + Statistics, McMaster '26" },
-  { key: "mail", value: "viranshshah@gmail.com ·  shahv47@mcmaster.ca" },
-  { key: "focus", value: "secure full-stack delivery, blue-team investigation" },
-  { key: "stack", value: "Python · TypeScript · Vue · Flask · Splunk · Wireshark" },
-  { key: "status", value: "June 2026 graduate - open to SWE and security analyst roles" },
+  { key: "role", value: "software developer / security analyst" },
+  { key: "edu", value: "McMaster CS + Stats, class of '26" },
+  { key: "focus", value: "secure full-stack apps, blue-team work" },
+  { key: "stack", value: "Python, TypeScript, Vue, Flask, Splunk, Wireshark" },
+  { key: "status", value: "open to SWE and security roles" },
 ];
 
 export interface ExperienceEntry {
@@ -85,6 +79,7 @@ export interface ExperienceEntry {
   period: string;
   location: string;
   kind: "Co-op" | "Leadership" | "Teaching";
+  hash: string;
   bullets: string[];
   stack: string[];
   links?: { label: string; href: string }[];
@@ -101,7 +96,7 @@ export const cybersciPhotos = [
   {
     src: "/images/cybersci-2025-toronto-score.jpg",
     alt: "CyberSci 2025 Toronto region standings. MacHackers placed 2nd with 2336 points.",
-    caption: "Toronto region standings - 2nd with 2336 points",
+    caption: "Toronto standings: 2nd with 2336 points",
     width: 953,
     height: 596,
     contain: true,
@@ -111,75 +106,36 @@ export const cybersciPhotos = [
 export const experience: ExperienceEntry[] = [
   {
     org: "Environment and Climate Change Canada & Canada Water Agency",
-    role: "Full Stack Developer - IMWEBs Viewer & Nutri View",
+    role: "Full Stack Developer, IMWEBs Viewer & Nutri View",
     period: "Sept 2024 - Aug 2025",
-    location: "Burlington & North York, Ontario",
+    location: "Burlington & North York, ON",
     kind: "Co-op",
+    hash: "e7c2a19",
     bullets: [
-      "Sole developer of IMWEBs Viewer and Nutri View from prototype to production: two cross-platform desktop and web apps (Vue.js, Tauri, Flask) that visualize watershed and water-quality data through interactive tables, graphs, and maps for federal scientists.",
-      "On Nutri View only: built Excel-to-SQLite and shapefile/raster-to-GeoPackage conversion APIs, plus RBAC with a guest account and per-route permissions (read, write, upload, download) editable by admins and deny-by-default.",
-      "Secured both apps with bcrypt-hashed credentials, JWT session tokens with server-side revocation, and role-based access control; hardened upload and data routes against SQL injection and path traversal.",
-      "Configured Flask REST APIs behind the Vue.js frontend, shipped signed Windows, macOS, and Linux builds from one codebase via GitHub Actions, and deployed on Azure VMs through IIS over HTTPS with a reverse proxy.",
+      "Only developer on IMWEBs Viewer and Nutri View, from first prototype to production. Both turn watershed and water-quality data into tables, charts and maps for federal scientists.",
+      "Locked both down with bcrypt, JWT sessions that can actually be revoked, role-based access, and checks against SQL injection and path traversal.",
+      "Built Nutri View's Excel-to-SQLite and shapefile-to-GeoPackage converters, plus guest permissions that deny by default and admins can change without a redeploy.",
+      "Shipped signed Windows, macOS and Linux builds from one codebase with GitHub Actions, deployed on Azure VMs behind IIS over HTTPS.",
     ],
-    stack: [
-      "Vue.js",
-      "Tauri",
-      "Flask",
-      "SQLite",
-      "GeoPackage",
-      "Azure",
-      "IIS",
-      "Reverse Proxy",
-      "bcrypt",
-      "RBAC",
-      "GitHub Actions",
-    ],
+    stack: ["Vue.js", "Tauri", "Flask", "SQLite", "GeoPackage", "Azure", "IIS", "bcrypt", "RBAC", "GitHub Actions"],
     links: [
       { label: "IMWEBs Viewer", href: "https://github.com/shahviransh/ECCC-IMWEBs-Viewer" },
       { label: "Nutri View", href: "https://github.com/shahviransh/Nutri-View" },
     ],
   },
   {
-    org: "McMaster University",
-    role: "Teaching Assistant - SFWRENG 2C03, 2XC3 & COMPSCI 1XD3",
-    period: "Jan–Apr 2024 · Sep–Dec 2025 · Jan–Apr 2026",
-    location: "Hamilton, Ontario",
-    kind: "Teaching",
-    bullets: [
-      "Led labs and tutorials for 100+ students over three terms on algorithms, data structures, and software development in Linux, Git, C, and web stacks (HTML/CSS/JavaScript/PHP).",
-    ],
-    stack: [
-      "Algorithms",
-      "Data Structures",
-      "Linux",
-      "Git",
-      "C",
-      "HTML/CSS",
-      "JavaScript",
-      "PHP",
-    ],
-  },
-  {
     org: "McMaster Cyber Society",
     role: "Founding Executive Member",
     period: "Sept 2023 - Present",
-    location: "Hamilton, Ontario",
+    location: "Hamilton, ON",
     kind: "Leadership",
+    hash: "4b91f0d",
     bullets: [
-      "Placed 3rd as MacHackers at CyberSci Regional Finals 2025 and 2nd in Toronto against top Canadian university teams; also competed in Advent of Cyber and CyberStart Canada.",
-      "Competed across forensics, web exploitation, cryptography, binary exploitation, OSINT, and miscellaneous challenges.",
-      "Reconstructed attack chains from PCAP captures, memory images, and file metadata using Wireshark, tcpdump, and CyberChef.",
-      "Cracked weak and reused password hashes with John the Ripper and reproduced brute-force and password-spraying traffic with Hydra to study its detection signature; exploited SQL injection and authentication bypass.",
+      "Took 2nd in Toronto and 3rd at CyberSci Regional Finals 2025 with MacHackers. Also played Advent of Cyber and CyberStart Canada.",
+      "Rebuild attack chains from PCAPs, memory images and file metadata with Wireshark, tcpdump and CyberChef.",
+      "Crack weak hashes with John the Ripper and replay password spraying with Hydra to see what it looks like in the logs.",
     ],
-    stack: [
-      "Wireshark",
-      "tcpdump",
-      "CyberChef",
-      "Nmap",
-      "Metasploit",
-      "Burp Suite",
-      "Kali Linux",
-    ],
+    stack: ["Wireshark", "tcpdump", "CyberChef", "Nmap", "Metasploit", "Burp Suite", "Kali Linux"],
     links: [
       {
         label: "CyberSci Toronto 2nd",
@@ -187,339 +143,292 @@ export const experience: ExperienceEntry[] = [
       },
     ],
   },
+  {
+    org: "McMaster University",
+    role: "Teaching Assistant, SFWRENG 2C03, 2XC3 & COMPSCI 1XD3",
+    period: "Jan 2024 - Apr 2026 (3 terms)",
+    location: "Hamilton, ON",
+    kind: "Teaching",
+    hash: "a03d6e5",
+    bullets: [
+      "Ran labs and tutorials for 100+ students on algorithms, data structures, Linux, Git, C and web basics (HTML, CSS, JavaScript, PHP).",
+    ],
+    stack: ["Algorithms", "Data Structures", "Linux", "Git", "C", "JavaScript", "PHP"],
+  },
 ];
 
 export const education = {
   school: "McMaster University",
-  credential: "Bachelor of Applied Science in Computer Science, Minor in Statistics",
+  credential: "B.A.Sc. Computer Science, Minor in Statistics",
   period: "Sept 2021 - June 2026",
-  location: "Hamilton, Ontario",
+  location: "Hamilton, ON",
   highlights: [
-    "Conferred With Distinction (16 June 2026), Dean's Honours List (GPA 3.7 / 4.0)",
+    "Graduated with Distinction, Dean's Honours List (3.7 / 4.0)",
     "Faculty of Engineering Achievement Award",
-    "A+ in Databases, Data Structures & Algorithms, Information Security, and Computer Networks & Security",
+    "A+ in Information Security, Networks & Security, Databases, and DSA",
   ],
 };
 
-export const skillGroups = [
+export interface SkillGroup {
+  name: string;
+  icon: string;
+  items: string[];
+}
+
+export const skillSides: { id: "build" | "defend"; label: string; blurb: string; groups: SkillGroup[] }[] = [
   {
-    name: "Security Operations",
-    icon: "radar",
-    blurb: "How I work an alert from first signal to written-up conclusion.",
-    items: [
-      "Alert triage",
-      "Incident response (NIST lifecycle)",
-      "Log & packet analysis",
-      "Windows Security event logs",
-      "Linux syslog & auth.log",
-      "SIEM and EDR investigation",
-      "Email header analysis",
-      "Active Directory",
-      "TCP/IP networking",
-      "Digital forensics",
+    id: "build",
+    label: "build",
+    blurb: "What I ship products with.",
+    groups: [
+      {
+        name: "Languages",
+        icon: "code",
+        items: ["Python", "TypeScript", "JavaScript", "Rust", "Java", "C", "SQL", "PHP", "Bash", "PowerShell"],
+      },
+      {
+        name: "Frameworks",
+        icon: "cpu",
+        items: ["Vue.js", "React", "React Native", "Expo", "Flask", "FastAPI", "Tauri", "Electron", "Tailwind CSS", "Firebase"],
+      },
+      {
+        name: "Data & Cloud",
+        icon: "server",
+        items: ["Azure", "Google Cloud", "Docker", "IIS", "PostgreSQL", "SQL Server", "MySQL", "SQLite", "REST APIs"],
+      },
+      {
+        name: "Tooling",
+        icon: "terminal",
+        items: ["Git", "GitHub Actions", "Linux", "VirtualBox", "VSCode", "Cursor", "Claude Code", "Codex"],
+      },
     ],
   },
   {
-    name: "Security Tooling",
-    icon: "shield",
-    blurb: "Defensive tooling day to day, offensive tooling from CTF practice.",
-    items: [
-      "Splunk",
-      "Wireshark",
-      "tcpdump",
-      "CyberChef",
-      "Event Viewer",
-      "Nmap",
-      "Burp Suite",
-      "Metasploit",
-      "John the Ripper",
-      "Hydra",
-      "SQLMap",
-      "Kali Linux",
-    ],
-  },
-  {
-    name: "Languages",
-    icon: "code",
-    blurb: "Core programming, scripting, and querying languages.",
-    items: [
-      "Python",
-      "Rust",
-      "PowerShell",
-      "Bash",
-      "SQL",
-      "TypeScript",
-      "JavaScript",
-      "Java",
-      "C",
-      "PHP",
-      "HTML/CSS",
-      "LaTeX",
-    ],
-  },
-  {
-    name: "Frameworks & Libraries",
-    icon: "cpu",
-    blurb: "Frontend, backend, mobile, desktop, and styling stacks.",
-    items: [
-      "Vue.js",
-      "React.js",
-      "React Native",
-      "Expo",
-      "Flask",
-      "FastAPI",
-      "Tailwind CSS",
-      "Electron",
-      "Tauri",
-      "Firebase",
-    ],
-  },
-  {
-    name: "Databases & Platforms",
-    icon: "server",
-    blurb: "Cloud environments, relational engines, operating systems, and servers.",
-    items: [
-      "Azure",
-      "Google Cloud",
-      "IIS",
-      "GNU/Linux",
-      "Windows",
-      "Docker",
-      "PostgreSQL",
-      "Microsoft SQL Server",
-      "MySQL",
-      "SQLite",
-      "REST APIs",
-      "Secure deployment (HTTPS, reverse proxy)",
-    ],
-  },
-  {
-    name: "Developer Tools & AI",
-    icon: "terminal",
-    blurb: "CI/CD, version control, hypervisors, and AI coding assistants.",
-    items: [
-      "Git",
-      "GitHub Actions (CI/CD)",
-      "VirtualBox",
-      "VSCode",
-      "Cursor",
-      "Claude Code",
-      "Antigravity",
-      "Codex",
+    id: "defend",
+    label: "defend",
+    blurb: "What I investigate and break things with.",
+    groups: [
+      {
+        name: "Security Ops",
+        icon: "radar",
+        items: [
+          "Alert triage",
+          "NIST incident response",
+          "Log & packet analysis",
+          "Windows event logs",
+          "Linux auth.log",
+          "SIEM & EDR",
+          "Email headers",
+          "Active Directory",
+          "Digital forensics",
+        ],
+      },
+      {
+        name: "Security Tools",
+        icon: "shield",
+        items: ["Splunk", "Wireshark", "tcpdump", "CyberChef", "Nmap", "Burp Suite", "Metasploit", "John the Ripper", "Hydra", "SQLMap", "Kali Linux"],
+      },
+      {
+        name: "Secure Dev",
+        icon: "lock",
+        items: ["RBAC", "bcrypt", "JWT revocation", "Input hardening", "HTTPS & reverse proxy", "E2E encryption", "OS firewall rules"],
+      },
     ],
   },
 ];
 
 export const projectFilters: { id: ProjectCategory | "all"; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "security", label: "Security" },
-  { id: "fullstack", label: "Full-Stack" },
-  { id: "ml", label: "ML & Data" },
-  { id: "tools", label: "Tools" },
+  { id: "all", label: "all" },
+  { id: "security", label: "security" },
+  { id: "fullstack", label: "full-stack" },
+  { id: "ml", label: "ml" },
+  { id: "tools", label: "tools" },
 ];
 
 export const projects: Project[] = [
+  {
+    name: "Slicc",
+    tagline: "Group bill splitting with real E2E chat",
+    period: "Sept 2025 - Apr 2026",
+    summary:
+      "Capstone mobile app for splitting bills and picking restaurants, built by a 7-person team and shipped to Android.",
+    bullets: [
+      "Designed the chat encryption with TweetNaCl: X25519 key agreement, XSalsa20-Poly1305 messages and per-member group-key wrapping. Firebase only ever sees ciphertext.",
+      "Built a When2Meet-style scheduler inside the chat, plus event and expense-splitting flows.",
+      "Gemini reads receipts into JSON, with a 15 second timeout and on-device ML Kit OCR as the fallback.",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "Firebase", "TweetNaCl", "Gemini"],
+    categories: ["security", "fullstack"],
+    featured: true,
+    links: [{ label: "Repo", href: "https://github.com/mac-capstone/slicc" }],
+  },
+  {
+    name: "MindVault",
+    tagline: "Study lockdown enforced by your own firewall",
+    period: "2025",
+    summary:
+      "Desktop app that closes your distractions for 1 minute to 8 hours while a study desk and offline games stay open.",
+    bullets: [
+      "Stricter sessions add outbound firewall rules (Windows Firewall, nftables, pf) and remove them on exit. Deny the admin prompt and nothing changes.",
+      "PIN and recovery-key hashes live in a local SQLite file. API keys stay in the system keychain.",
+      "The built-in tutor only does quizzes, summaries, flashcards and grading. No freeform chat box to sneak around with.",
+    ],
+    stack: ["Tauri", "Rust", "React", "TypeScript", "SQLite", "nftables", "pf"],
+    categories: ["security", "tools"],
+    featured: true,
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/MindVault" }],
+  },
+  {
+    name: "Nutri View",
+    tagline: "Nutrient modelling with deny-by-default guests",
+    period: "Sept 2024 - Aug 2025",
+    summary:
+      "IMWEBs Viewer's sibling for nutrient scenarios, with admin and guest roles and data converters built in.",
+    bullets: [
+      "Every API route declares the permission it needs. Guest read, write, upload and download all start off and admins flip them live.",
+      "Converts Excel workbooks into SQLite tables and spatial uploads into GeoPackages, so analysts stop building them by hand.",
+      "bcrypt logins, revocable JWT sessions and input checks on every upload route.",
+    ],
+    stack: ["Vue.js", "Flask", "Tauri", "SQLite", "GeoPackage", "JWT", "RBAC", "Azure"],
+    categories: ["fullstack", "security"],
+    featured: true,
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/Nutri-View" }],
+  },
   {
     name: "IMWEBs Viewer",
     tagline: "Watershed analytics for federal scientists",
     period: "Sept 2024 - Aug 2025",
     summary:
-      "Cross-platform desktop and web app (Vue.js, Tauri, Flask) built for Environment and Climate Change Canada, turning watershed model output into interactive tables, graphs, and maps for scientists. Authenticated JWT APIs serve SQLite tables and geospatial layers; conversion of Excel and shapefiles lives on the sibling Nutri View app.",
+      "Desktop and web app that turns watershed model output into tables, charts and maps for ECCC scientists.",
     bullets: [
-      "Sole developer from prototype to production: self-serve watershed analysis for federal scientists via tables, charts, and maps.",
-      "Flask REST APIs behind Vue.js with bcrypt login, JWT access, and server-side token revocation on logout; every data and geospatial route requires a valid token.",
-      "Shipped signed Windows, macOS, and Linux builds from one codebase via GitHub Actions; deployed on Azure VMs through IIS over HTTPS with a reverse proxy.",
+      "Solo build from prototype to production. Scientists explore the data themselves instead of asking for exports.",
+      "Every data and map route needs a valid token, and logging out revokes it server-side.",
+      "Signed builds for three OSes from one codebase, deployed on Azure behind IIS and HTTPS.",
     ],
-    stack: [
-      "Vue.js",
-      "Flask",
-      "Tauri",
-      "SQLite",
-      "Azure",
-      "IIS",
-      "Reverse Proxy",
-      "GitHub Actions",
-      "bcrypt",
-      "JWT",
-    ],
+    stack: ["Vue.js", "Flask", "Tauri", "SQLite", "Azure", "IIS", "GitHub Actions"],
     categories: ["fullstack"],
     featured: true,
-    links: [
-      { label: "Repository", href: "https://github.com/shahviransh/ECCC-IMWEBs-Viewer" },
-      { label: "Nutri View", href: "https://github.com/shahviransh/Nutri-View" },
-    ],
-  },
-  {
-    name: "Nutri View",
-    tagline: "Nutrient modelling with guest permissions and data converters",
-    period: "Sept 2024 - Aug 2025",
-    summary:
-      "Sibling platform to IMWEBs Viewer for nutrient scenarios. Same Vue.js / Tauri / Flask stack, plus admin and guest roles, per-route guest permissions, and APIs that convert Excel workbooks into SQLite and spatial uploads into GeoPackages.",
-    bullets: [
-      "RBAC with admin and guest roles: deny-by-default guest permissions (read, write, upload, download) in guest_permissions.json; each API route declares the permission it needs, and admins can change the flags without redeploying.",
-      "convert_excels_to_db turns uploaded Excel files into database tables; convert_to_gpkg merges uploaded spatial files into GeoPackage format so analysts stop hand-building those datasets.",
-      "bcrypt-hashed credentials, JWT sessions with server-side revocation, and input validation against SQL injection and path traversal on upload and conversion routes.",
-    ],
-    stack: [
-      "Vue.js",
-      "Flask",
-      "Tauri",
-      "SQLite",
-      "GeoPackage",
-      "bcrypt",
-      "JWT",
-      "RBAC",
-      "Azure",
-    ],
-    categories: ["fullstack", "security"],
-    featured: true,
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/Nutri-View" }],
-  },
-  {
-    name: "MindVault",
-    tagline: "Voluntary study lockdown with OS firewall rules",
-    period: "Personal project",
-    summary:
-      "Cross-platform desktop app (Tauri, Rust, React/Vite, TypeScript) that closes chosen distraction apps for 1 minute to 8 hours while a study desk and offline games stay open. Windows, Linux, and macOS installers ship from GitHub Actions.",
-    bullets: [
-      "Standard and Full sessions add outbound firewall rules and remove them when the app closes: Windows rules named MindVault_, Linux nftables, macOS pf. Denying the administrator prompt cancels the start and leaves the machine unchanged.",
-      "PIN hash and recovery-key hash stay in mindvault.db; API keys stay in the system keychain.",
-      "In-app tutor only runs quiz, summary, flashcard, grade, and explain-back jobs, and rejects a freeform chat prompt.",
-    ],
-    stack: ["Tauri", "Rust", "React", "TypeScript", "Vite", "nftables", "pf", "GitHub Actions"],
-    categories: ["security", "tools"],
-    featured: true,
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/MindVault" }],
-  },
-  {
-    name: "Slicc",
-    tagline: "Bill splitting and restaurant recommendation app",
-    period: "Sept 2025 - Apr 2026",
-    summary:
-      "Cross-platform mobile app (React Native, Expo, TypeScript, Firebase) that helps groups split bills and discover restaurants, built by a 7-person Agile capstone team and released to Android via APK.",
-    bullets: [
-      "Cross-platform mobile app (React Native, Expo, TypeScript, Firebase) that helps groups split bills and discover restaurants, built by a 7-person Agile capstone team and released to Android via APK.",
-      "Built a When2Meet-style group scheduler inside the chat that surfaces shared free times, plus event creation and expense-splitting workflows.",
-      "Architected TweetNaCl end-to-end encryption (X25519 and XSalsa20-Poly1305) so message contents stay readable only to participants. Private keys stay on the device; Firebase stores ciphertext and public keys.",
-    ],
-    stack: ["React Native", "Expo", "TypeScript", "Firebase", "TweetNaCl"],
-    categories: ["security", "fullstack"],
-    featured: true,
-    links: [{ label: "Repository", href: "https://github.com/mac-capstone/slicc" }],
-  },
-  {
-    name: "Fraud Detection at Scale",
-    tagline: "Two-stage ensemble over 1.47M transactions",
-    period: "COMPSCI 4AL3",
-    summary:
-      "Team fraud classifier on 1.47 million e-commerce transactions. The group's weighted ensemble reached 26.3% precision, 61.3% recall, an F1 of 0.368, and 0.877 AUC-ROC on held-out data.",
-    bullets: [
-      "Led feature engineering: 52+ temporal, behavioural, and interaction features, including the New Account High Value term, plus the ADASYN resampling pipeline.",
-      "Built the configurable cost-based threshold optimizer, the GPU training path with PyTorch and RAPIDS cuML, and the tuned XGBoost model.",
-      "Ran the customer-location leakage analysis. A teammate owned the 5-layer focal-loss network and the weighted ensemble that produced the held-out numbers.",
-    ],
-    stack: ["PyTorch", "XGBoost", "RAPIDS cuML", "scikit-learn", "ADASYN", "Hugging Face"],
-    categories: ["ml"],
-    featured: true,
-    links: [
-      { label: "Repository", href: "https://github.com/shahviransh/COMPSCI-4AL3-Project" },
-    ],
-  },
-  {
-    name: "MindVault",
-    tagline: "Voluntary lockdown for focused study sessions",
-    period: "2025",
-    summary:
-      "Cross-platform desktop app that locks the account that starts it for 1 minute to 8 hours: closes chosen distractions while a study desk, offline brain games, and a no-chat tutor stay open.",
-    bullets: [
-      "Three lock levels (Light, Standard, Full) close AI apps and entertainment, with OS firewall rules for site and program blocks on Windows, Linux (nftables), and macOS (pf).",
-      "Study desk opens only allowlisted HTTPS sites in-app; six offline games, Pomodoro timers, schedules, and a constrained tutor (quiz/flashcards/grade) with no freeform chat box.",
-      "PIN and one-time recovery key end sessions; API keys live in the system keychain; session state stays in a local SQLite database, with signed installs via GitHub Actions.",
-    ],
-    stack: ["Tauri", "Rust", "React", "TypeScript", "SQLite", "nftables", "pf"],
-    categories: ["tools", "security"],
-    featured: true,
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/MindVault" }],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/ECCC-IMWEBs-Viewer" }],
   },
   {
     name: "CleanFade",
-    tagline: "Real-time Spotify profanity ducking",
+    tagline: "Turns Spotify down before the swear word",
     period: "2025",
     summary:
-      "Cross-platform desktop app for Windows, macOS, and Linux that lowers Spotify volume when profanity is detected in currently playing audio.",
+      "Cross-platform app that ducks Spotify's volume when it hears profanity in whatever is playing.",
     bullets: [
-      "Python engine captures speaker loopback, transcribes chunks with faster-whisper, matches a profanity list, and optionally aligns synced lyrics from LRCLib to pre-duck upcoming lines.",
-      "Platform volume backends: WASAPI/pycaw session volume on Windows, AppleScript on macOS, and PulseAudio/PipeWire pactl on Linux.",
-      "Tauri + React shell wraps a PyInstaller sidecar with start/stop controls and live logs; GitHub Actions builds signed Windows, macOS, and Linux releases.",
+      "Captures speaker audio, transcribes it with faster-whisper and can line up synced lyrics to duck the line early.",
+      "Native volume control on each OS: WASAPI on Windows, AppleScript on macOS, pactl on Linux.",
+      "A Python sidecar bundled inside a Tauri app, released for all three OSes through GitHub Actions.",
     ],
-    stack: ["Tauri", "Rust", "React", "Python", "faster-whisper", "PyInstaller", "LRCLib"],
+    stack: ["Tauri", "Rust", "React", "Python", "faster-whisper", "PyInstaller"],
     categories: ["tools"],
     featured: true,
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/cleanfade" }],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/cleanfade" }],
+  },
+  {
+    name: "SecTest MCP Server",
+    tagline: "Kali tools for an AI assistant, over SSH",
+    period: "Open source",
+    summary:
+      "MCP server that lets an AI assistant run security tools on an authorized Kali Linux VM.",
+    bullets: [
+      "Ask for an Nmap, Nikto, SQLMap, WPScan or dirb run and it happens on the VM over key-based SSH.",
+      "Host and user come from Docker secrets, the key is mounted as a file, and the container runs as non-root.",
+      "Built for authorized testing only, and the README says so loudly.",
+    ],
+    stack: ["Python", "MCP", "Docker", "SSH", "Kali Linux"],
+    categories: ["security", "tools"],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/Sectest-MCP-Server" }],
   },
   {
     name: "Textbook MCP Server",
-    tagline: "Hardened PDF analysis for AI assistants",
+    tagline: "Hardened PDF tools for AI assistants",
     period: "2025",
     summary:
-      "Model Context Protocol server that gives an AI assistant safe tools for textbook PDFs: table-of-contents extraction, chapter and page summaries, flashcards, and quiz generation.",
+      "MCP server that pulls tables of contents, summaries, flashcards and quizzes out of textbook PDFs.",
     bullets: [
-      "Intelligent OCR detects which pages actually contain images and only runs Tesseract on those, keeping text-heavy documents fast.",
-      "Defensive configuration by default: file-type validation, page and file-size limits, per-tool rate limiting, and a non-root container.",
-      "Ships as a Docker image wired into the Docker MCP toolkit.",
+      "Only OCRs the pages that actually have images, so text-heavy books stay fast.",
+      "File-type checks, page and size limits, per-tool rate limits and a non-root container out of the box.",
     ],
-    stack: ["Python", "MCP", "Docker", "Tesseract OCR", "PyPDF2", "pdfplumber", "Hugging Face Transformers", "NLTK"],
+    stack: ["Python", "MCP", "Docker", "Tesseract OCR", "pdfplumber", "Transformers"],
     categories: ["tools", "security"],
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/Textbook-MCP-Server" }],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/Textbook-MCP-Server" }],
   },
   {
-    name: "20 Newsgroups Annotation Study",
-    tagline: "Measuring inter-annotator agreement",
+    name: "Fraud Detection at Scale",
+    tagline: "Catching fraud in 1.47M transactions",
+    period: "COMPSCI 4AL3",
+    summary:
+      "Team fraud classifier. Our weighted ensemble hit 61.3% recall and 0.877 AUC-ROC on held-out data.",
+    bullets: [
+      "I led feature engineering (52+ temporal and behavioural features) and the ADASYN resampling pipeline.",
+      "Built the cost-based threshold optimizer, the GPU training path (PyTorch, RAPIDS cuML) and the tuned XGBoost model.",
+      "Ran the customer-location leakage analysis. A teammate owned the focal-loss network and final ensemble.",
+    ],
+    stack: ["PyTorch", "XGBoost", "RAPIDS cuML", "scikit-learn", "ADASYN"],
+    categories: ["ml"],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/COMPSCI-4AL3-Project" }],
+  },
+  {
+    name: "20 Newsgroups",
+    tagline: "ModernBERT plus an annotation study",
     period: "COMPSCI 4NL3",
     summary:
-      "Group annotation pipeline for the 20 Newsgroups corpus: 18,000+ train and test documents across 20 topics, with assignment, autosave, and a second annotation pass.",
+      "Three-person NLP project: fine-tuned ModernBERT-large to 72.5% accuracy and 0.715 macro F1 on 20-way topic classification.",
     bullets: [
-      "Python interface for document assignment, progress tracking, autosaved backups, and category-aware review.",
-      "Agreement scoring with Cohen's Kappa, Fleiss' Kappa, and Krippendorff's Alpha, plus a re-annotation pass so guidelines can be revised and retested.",
-      "Reproducible Conda environment for the annotation and agreement scripts.",
+      "Stripped headers, footers and quotes first so the model couldn't cheat off metadata.",
+      "Built the annotation tool and scored agreement with Cohen's Kappa, Fleiss' Kappa and Krippendorff's Alpha.",
     ],
-    stack: ["Python", "pandas", "scikit-learn", "Conda"],
+    stack: ["Python", "ModernBERT", "Transformers", "pandas", "scikit-learn"],
     categories: ["ml"],
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/COMPSCI-4NL3-Project" }],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/COMPSCI-4NL3-Project" }],
   },
   {
-    name: "Media Toolkit",
-    tagline: "Scrapers, dedupe checks, and video summarisation",
-    period: "2024",
+    name: "Banking Transactions API",
+    tagline: "Transfers that can't overdraw",
+    period: "Side project",
     summary:
-      "A grab bag of Python utilities built around Google APIs: link discovery, duplicate detection over JSON catalogues, bulk image download, static gallery generation, and video summarisation.",
+      "Spring Boot REST API for accounts, transfers and transaction history.",
     bullets: [
-      "Duplicate detection walks JSON catalogues by canonical URL to keep scraped indexes clean.",
-      "Generated static HTML galleries make large downloaded image sets browsable offline.",
-      "Containerised so the whole toolkit runs the same way anywhere.",
+      "Clean controller, service and repository layers, with DTOs at the edge so internals never leak.",
+      "BigDecimal money, synchronized transfers and matching currencies. Bad input is a 400, a missing account a 404, no funds a 422.",
+      "MockMvc tests cover every one of those paths.",
     ],
-    stack: ["Python", "Google APIs", "BeautifulSoup", "Docker"],
-    categories: ["tools"],
-    links: [{ label: "Repository", href: "https://github.com/shahviransh/GoogleAPIsProject" }],
+    stack: ["Java 21", "Spring Boot", "Maven", "MockMvc", "Postman"],
+    categories: ["fullstack"],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/banking-transactions-api" }],
   },
   {
-    name: "Watershed Data Dashboard",
-    tagline: "Geospatial dashboard split across three services",
+    name: "Watershed Dashboard",
+    tagline: "The prototype before IMWEBs Viewer",
     period: "2024",
     summary:
-      "The prototype that preceded IMWEBs Viewer: a Vue dashboard, a Flask API reading SQLite and shapefiles, and a GeoServer-backed Leaflet map, each deployed independently.",
+      "Vue dashboard, Flask API and GeoServer-backed Leaflet map, each deployed on its own.",
     bullets: [
-      "Interactive subbasin selection drives line and pie charts rendered from API responses.",
-      "Draggable panel directive and Leaflet overlays let users compare map features against time series side by side.",
-      "Deployed to Vercel as separate front-end and Python API services.",
+      "Pick a subbasin and the line and pie charts redraw from the API.",
+      "Draggable panels let you compare the map against the time series side by side.",
     ],
     stack: ["Vue 3", "Flask", "Leaflet", "GeoServer", "Chart.js", "Vercel"],
     categories: ["fullstack"],
     links: [
       { label: "Frontend", href: "https://github.com/shahviransh/ECCC-Assignment-Frontend" },
       { label: "Backend", href: "https://github.com/shahviransh/ECCC-Assignment-Backend" },
-      { label: "GeoServer", href: "https://github.com/shahviransh/ECCC-Assignment-Geoserver" },
     ],
+  },
+  {
+    name: "Media Toolkit",
+    tagline: "Scrapers, dedupe and video summaries",
+    period: "2024",
+    summary:
+      "Python utilities around Google APIs: link discovery, duplicate checks, bulk image downloads and video summaries.",
+    bullets: [
+      "Finds duplicates in JSON catalogues by canonical URL.",
+      "Turns big image dumps into static HTML galleries you can browse offline.",
+    ],
+    stack: ["Python", "Google APIs", "BeautifulSoup", "Docker"],
+    categories: ["tools"],
+    links: [{ label: "Repo", href: "https://github.com/shahviransh/GoogleAPIsProject" }],
   },
 ];
 
@@ -537,48 +446,55 @@ export const credentials: Credential[] = [
     issuer: "TryHackMe",
     year: "2025",
     href: "https://github.com/shahviransh/shahviransh/blob/main/TryHackMe/Certificates/Cyber%20Security%20101%20Certificate%20of%20Completion.pdf",
-    detail:
-      "Defensive fundamentals end to end: working an alert, the NIST incident response lifecycle, digital forensics, and where SIEM, IDS, firewall, and vulnerability scanning fit.",
+    detail: "Working an alert, the NIST IR lifecycle, forensics, and where SIEM, IDS and firewalls fit.",
   },
   {
     name: "Pre Security",
     issuer: "TryHackMe",
     year: "2025",
     href: "https://github.com/shahviransh/shahviransh/blob/main/TryHackMe/Certificates/Pre%20Security%20Certificate%20of%20Completion.pdf",
-    detail:
-      "Networking and operating system groundwork: TCP/IP, the OSI model, Windows and Linux internals, and the command line as an investigative surface.",
+    detail: "TCP/IP, the OSI model, Windows and Linux internals, and the command line.",
   },
 ];
 
 export const securityPractice = [
   {
-    title: "Alert triage in Splunk",
-    body: "Pivoted from a suspicious process to its hash, parent process, and scheduled-task persistence on a Windows host, then wrote the finding up as a timeline.",
+    title: "Splunk alert triage",
+    tag: "T1053.005",
+    body: "Followed a suspicious process to its hash, its parent and a scheduled-task persistence trick, then wrote it up as a timeline.",
     tools: ["Splunk", "Sysmon", "Windows"],
   },
   {
-    title: "Windows and Linux log review",
-    body: "Triaged Windows Security event logs for logon activity, process creation, account and group changes, and service installation; followed SSH authentication trails through Linux /var/log/auth.log.",
+    title: "Windows & Linux logs",
+    tag: "T1110.003",
+    body: "Logons, new processes, group changes and service installs in Windows event logs. SSH trails in auth.log.",
     tools: ["Event Viewer", "auth.log", "PowerShell"],
   },
   {
-    title: "Network and protocol analysis",
-    body: "Read packet captures and email protocol traffic to separate normal behaviour from reconnaissance, including Received chains with SPF, DKIM, and DMARC results for phishing triage.",
+    title: "Packets & phishing",
+    tag: "T1566",
+    body: "Packet captures to spot recon, and email headers (SPF, DKIM, DMARC) to call out phishing.",
     tools: ["Wireshark", "tcpdump", "Nmap", "CyberChef"],
   },
   {
-    title: "Offensive practice for detection",
-    body: "Reproduced SQL injection, authentication bypass, hash cracking, and password spraying in lab environments specifically to learn what each one leaves behind in logs.",
+    title: "Attack to detect",
+    tag: "lab only",
+    body: "I run SQLi, auth bypass, hash cracking and password spraying in a lab so I know exactly what each one leaves behind.",
     tools: ["Burp Suite", "SQLMap", "John the Ripper", "Hydra"],
   },
 ];
 
 export const competitions = [
-  {
-    name: "CyberSci Regional Finals 2025",
-    result: "2nd in Toronto · 3rd at Regional Finals - MacHackers",
-    year: "2025",
-  },
+  { name: "CyberSci Regional Finals", result: "2nd in Toronto, 3rd overall", year: "2025" },
   { name: "Advent of Cyber", result: "Completed", year: "2024 & 2025" },
   { name: "CyberStart Canada", result: "Competed", year: "2025" },
+];
+
+export const navLinks = [
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "security", label: "Security" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
 ];

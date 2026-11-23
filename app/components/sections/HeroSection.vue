@@ -13,6 +13,11 @@
       }"
       aria-hidden="true"
     />
+    <!-- A slow scan bar, the kind you'd see on an old CRT. -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-40 animate-scan bg-gradient-to-b from-transparent via-accent/[0.04] to-transparent"
+      aria-hidden="true"
+    />
 
     <div class="container-page relative">
       <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-16">
@@ -25,53 +30,64 @@
               <span class="absolute size-2 animate-pulse-ring rounded-full bg-accent" />
               <span class="size-2 rounded-full bg-accent" />
             </span>
-            Recent grad - open to SWE & security roles
+            Class of 2026, open to SWE and security roles
           </p>
 
-          <div class="mt-6 flex items-center gap-5 sm:gap-6">
-            <img
-              v-reveal="40"
-              src="/Profile.jpg"
-              :alt="profile.name"
-              width="176"
-              height="176"
-              class="size-32 shrink-0 rounded-full border-2 border-accent/40 object-cover sm:size-36 lg:size-44"
-            />
+          <div class="mt-7 flex items-center gap-5 sm:gap-6">
+            <div v-reveal="40" class="relative shrink-0">
+              <span
+                class="absolute -inset-1.5 rounded-full border border-dashed border-accent/40 motion-safe:animate-[spin_24s_linear_infinite]"
+                aria-hidden="true"
+              />
+              <img
+                src="/Profile.jpg"
+                :alt="profile.name"
+                width="176"
+                height="176"
+                class="relative size-28 rounded-full border-2 border-accent/50 object-cover sm:size-36 lg:size-40"
+              />
+            </div>
             <div class="min-w-0">
               <h1
                 v-reveal="80"
-                class="font-display text-4xl leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+                class="font-display text-4xl leading-[1.02] font-bold tracking-tight sm:text-5xl lg:text-6xl"
               >
-                <span class="block text-muted text-2xl font-medium sm:text-3xl">Hi, I'm</span>
-                <span class="text-gradient">{{ profile.name }}</span>
+                <span
+                  class="block font-mono text-base font-medium tracking-normal text-muted sm:text-lg"
+                  aria-hidden="true"
+                >
+                  <span class="text-accent">$</span> whoami
+                </span>
+                <span class="sr-only">{{ profile.name }}</span>
+                <span
+                  class="glitch text-gradient mt-1 inline-block"
+                  :data-text="profile.name"
+                  aria-hidden="true"
+                >{{ name }}</span>
               </h1>
               <!-- Fixed height keeps the layout still while the role scrambles.
                    Narrow screens reserve two lines, since the longer roles wrap
                    beside the portrait. -->
               <p
                 v-reveal="140"
-                class="mt-4 flex min-h-14 items-center gap-2 font-mono text-lg sm:min-h-8 sm:text-xl"
+                class="mt-3 flex min-h-14 items-center gap-2 font-mono text-base sm:min-h-8 sm:text-lg"
               >
                 <span class="text-accent">&gt;</span>
-                <!-- The caret lives inside the text so it trails the last
-                     character even when a longer role wraps. -->
                 <span class="text-ink"
-                  >{{ role }}<span class="animate-caret text-accent" aria-hidden="true"
-                    >▌</span
-                  ></span
+                  >{{ role }}<span class="animate-caret text-accent" aria-hidden="true">▌</span></span
                 >
               </p>
             </div>
           </div>
 
-          <p v-reveal="200" class="mt-6 max-w-xl text-base/relaxed text-muted sm:text-lg/relaxed">
+          <p v-reveal="200" class="mt-7 max-w-xl text-base/relaxed text-muted sm:text-lg/relaxed">
             {{ profile.intro }}
           </p>
 
           <div v-reveal="260" class="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              class="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-accent-contrast transition-transform hover:-translate-y-0.5"
+              class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-accent-contrast shadow-[0_0_24px_-6px_var(--c-accent)] transition-transform hover:-translate-y-0.5"
             >
               <span
                 class="absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-20deg] bg-white/25 group-hover:animate-sweep"
@@ -85,11 +101,19 @@
             </a>
             <a
               href="#contact"
-              class="inline-flex items-center gap-2 rounded-xl border border-line-strong bg-surface px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              class="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
             >
               <AppIcon name="mail" :size="16" />
-              Get in touch
+              Say hi
             </a>
+            <button
+              type="button"
+              class="hidden items-center gap-2 rounded-lg px-3 py-3 font-mono text-xs text-faint transition-colors hover:text-accent sm:inline-flex"
+              @click="openPalette"
+            >
+              or press
+              <kbd class="rounded border border-line-strong bg-surface px-1.5 py-0.5 text-[11px] text-muted">Ctrl K</kbd>
+            </button>
           </div>
 
           <div v-reveal="320" class="mt-9">
@@ -98,12 +122,23 @@
         </div>
 
         <div v-reveal:right="180" class="lg:pl-4">
-          <LogFeed />
+          <DualTerminal />
         </div>
       </div>
 
-      <dl v-reveal="380" class="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-4">
-        <div v-for="stat in stats" :key="stat.label" class="group bg-surface p-5 transition-colors hover:bg-surface-alt">
+      <dl
+        v-reveal="380"
+        class="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line lg:grid-cols-4"
+      >
+        <div
+          v-for="stat in stats"
+          :key="stat.label"
+          class="group relative bg-surface p-5 transition-colors hover:bg-surface-alt"
+        >
+          <span
+            class="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100"
+            aria-hidden="true"
+          />
           <dt class="font-display text-2xl font-bold text-accent sm:text-3xl">{{ stat.value }}</dt>
           <dd class="mt-1 text-sm font-medium text-ink">{{ stat.label }}</dd>
           <dd class="mt-0.5 font-mono text-[11px] text-faint">{{ stat.detail }}</dd>
@@ -125,7 +160,9 @@
 import { profile, stats } from "~/data/site";
 
 const root = useTemplateRef<HTMLElement>("root");
+const name = useDecode(profile.name, { delay: 400 });
 const role = useTextScramble(profile.roles, { hold: 2400 });
+const { open: openPalette } = useCommandPalette();
 
 function onPointerMove(event: PointerEvent) {
   const el = root.value;

@@ -1,81 +1,87 @@
 <template>
-  <section id="security" class="relative overflow-hidden border-t border-line py-24 md:py-32">
+  <section id="security" class="relative overflow-hidden border-t border-line bg-bg-alt py-24 md:py-32">
+    <div class="grid-backdrop absolute inset-0 opacity-50" aria-hidden="true" />
     <div class="container-page relative">
       <SectionHeading
-        index="05"
-        kicker="blue team"
-        title="How I approach an incident"
-        description="Detection is a reading skill. These are the specific things I practise: pivoting through a SIEM, reading raw logs and packets, and running attacks myself so I know their signature."
+        index="04"
+        command="./incident-response --blue-team"
+        title="How I handle an incident"
+        description="Detection is mostly reading. Here's what I practise: working a SIEM, reading raw logs and packets, and running attacks myself so I know what they look like."
       />
 
       <div
         v-reveal:scale
-        class="card-surface relative mb-8 overflow-hidden border-accent/30 bg-gradient-to-br from-accent/10 via-transparent to-cyber/10 p-6 sm:p-8"
+        class="card-surface relative mb-8 overflow-hidden border-accent/30 bg-gradient-to-br from-accent/10 via-transparent to-danger/10 p-6 sm:p-8"
       >
-        <div
-          class="grid-backdrop absolute inset-0 opacity-60"
-          aria-hidden="true"
-        />
-        <div class="relative flex flex-wrap items-center gap-x-8 gap-y-5">
-          <span
-            class="grid size-14 shrink-0 place-items-center rounded-2xl border border-accent/40 bg-accent/15 text-accent"
-          >
-            <AppIcon name="shield" :size="26" />
-          </span>
-          <div class="min-w-0 flex-1">
-            <p class="font-mono text-xs tracking-[0.2em] text-accent uppercase">
+        <div class="relative grid gap-8 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-center">
+          <div>
+            <p class="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-accent uppercase">
+              <AppIcon name="shield" :size="14" />
               CyberSci Regional Finals 2025
             </p>
-            <h3 class="mt-2 font-display text-2xl font-bold text-balance sm:text-3xl">
-              2nd in Toronto, 3rd at Regional Finals with
+            <h3 class="mt-3 font-display text-3xl leading-tight font-bold text-balance sm:text-4xl">
+              2nd in Toronto, 3rd overall with
               <span class="text-gradient-accent">MacHackers</span>
             </h3>
-            <p class="mt-2 max-w-2xl text-sm/relaxed text-muted">
-              Competing against the top Canadian university teams across forensics, web
-              exploitation, cryptography, binary exploitation, OSINT, and miscellaneous
-              challenges - under a clock.
+            <p class="mt-3 text-sm/relaxed text-muted">
+              Up against the top university teams in Canada, on the clock: forensics, web
+              exploitation, crypto, binary exploitation, OSINT and whatever else they threw at us.
             </p>
+            <dl class="mt-6 grid grid-cols-3 gap-3 font-mono">
+              <div class="rounded-md border border-line bg-surface/70 p-3">
+                <dt class="text-[10px] tracking-wider text-faint uppercase">toronto</dt>
+                <dd class="mt-1 text-xl font-bold text-accent">2nd</dd>
+              </div>
+              <div class="rounded-md border border-line bg-surface/70 p-3">
+                <dt class="text-[10px] tracking-wider text-faint uppercase">points</dt>
+                <dd class="mt-1 text-xl font-bold text-ink">2336</dd>
+              </div>
+              <div class="rounded-md border border-line bg-surface/70 p-3">
+                <dt class="text-[10px] tracking-wider text-faint uppercase">finals</dt>
+                <dd class="mt-1 text-xl font-bold text-ink">3rd</dd>
+              </div>
+            </dl>
           </div>
-        </div>
-        <div class="relative mt-6 grid gap-4">
-          <figure v-for="photo in cybersciPhotos" :key="photo.src" class="min-w-0">
-            <img
-              :src="photo.src"
-              :alt="photo.alt"
-              :width="photo.width"
-              :height="photo.height"
-              loading="lazy"
-              class="w-full rounded-xl border border-line"
-              :class="
-                photo.contain
-                  ? 'bg-white object-contain p-3 sm:p-5'
-                  : 'aspect-[16/9] object-cover object-[center_40%]'
-              "
-            />
-            <figcaption class="mt-2 font-mono text-[11px] text-faint">
-              {{ photo.caption }}
-            </figcaption>
-          </figure>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <figure v-for="photo in cybersciPhotos" :key="photo.src" class="min-w-0">
+              <img
+                :src="photo.src"
+                :alt="photo.alt"
+                :width="photo.width"
+                :height="photo.height"
+                loading="lazy"
+                class="aspect-[4/3] w-full rounded-md border border-line"
+                :class="photo.contain ? 'bg-white object-contain p-3' : 'object-cover object-[center_40%]'"
+              />
+              <figcaption class="mt-2 font-mono text-[11px] text-faint">{{ photo.caption }}</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
 
-      <div class="grid gap-5 lg:grid-cols-2">
+      <div class="grid gap-5 md:grid-cols-2">
         <article
           v-for="(item, index) in securityPractice"
           :key="item.title"
           v-reveal="index * 90"
-          class="card-surface group p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lift"
+          class="card-surface group p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
         >
-          <h3 class="flex items-center gap-2.5 font-display text-base font-semibold">
-            <span class="font-mono text-xs text-accent">{{ String(index + 1).padStart(2, "0") }}</span>
-            {{ item.title }}
-          </h3>
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="flex items-center gap-2.5 font-display text-base font-semibold">
+              <span class="font-mono text-xs text-accent">{{ String(index + 1).padStart(2, "0") }}</span>
+              {{ item.title }}
+            </h3>
+            <span class="rounded border border-danger/30 bg-danger/10 px-1.5 py-px font-mono text-[10px] text-danger">
+              {{ item.tag }}
+            </span>
+          </div>
           <p class="mt-3 text-sm/relaxed text-muted">{{ item.body }}</p>
           <ul class="mt-4 flex flex-wrap gap-1.5">
             <li
               v-for="tool in item.tools"
               :key="tool"
-              class="rounded-md border border-line bg-surface-alt px-2 py-1 font-mono text-[11px] text-faint transition-colors group-hover:border-accent/30 group-hover:text-accent"
+              class="rounded border border-line bg-surface-alt px-2 py-1 font-mono text-[11px] text-faint transition-colors group-hover:border-accent/30 group-hover:text-accent"
             >
               {{ tool }}
             </li>
@@ -100,7 +106,7 @@
                 :class="cert.href && 'hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lift'"
               >
                 <span
-                  class="grid size-10 shrink-0 place-items-center rounded-lg border border-line bg-surface-alt text-accent"
+                  class="grid size-10 shrink-0 place-items-center rounded-md border border-line bg-surface-alt text-accent"
                 >
                   <AppIcon name="radar" :size="18" />
                 </span>
@@ -144,9 +150,9 @@
           <div v-reveal:right="160" class="card-surface mt-3 p-5">
             <p class="font-mono text-[11px] tracking-widest text-faint uppercase">TryHackMe</p>
             <p class="mt-2.5 text-sm/relaxed text-muted">
-              <span class="font-semibold text-ink">65+ rooms</span> across the Pre Security and Cyber
-              Security 101 paths - network and email protocol analysis, Windows, Linux, and Active
-              Directory investigation, and attacker tooling against the OWASP Top 10.
+              <span class="font-semibold text-ink">65+ rooms</span> so far: network and email
+              analysis, Windows, Linux and Active Directory investigations, and attacking the OWASP
+              Top 10.
             </p>
           </div>
         </div>

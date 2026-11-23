@@ -4,10 +4,12 @@
       <span class="size-3 rounded-full bg-danger/70" />
       <span class="size-3 rounded-full bg-warn/70" />
       <span class="size-3 rounded-full bg-accent/70" />
-      <span class="ml-2 truncate text-xs text-faint">{{ title }}</span>
+      <slot name="title">
+        <span class="ml-2 truncate text-xs text-faint">{{ title }}</span>
+      </slot>
       <span class="ml-auto hidden items-center gap-1.5 text-[11px] text-faint sm:flex">
         <AppIcon name="lock" :size="12" />
-        secure shell
+        ssh
       </span>
     </div>
 

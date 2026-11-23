@@ -8,7 +8,10 @@
           <span class="text-accent">~/</span>{{ profile.handle }}
         </p>
         <p class="mt-1.5 text-sm text-muted">
-          Built with Nuxt and Tailwind CSS. © {{ year }} {{ profile.name }}.
+          Designed and built by me with Nuxt and Tailwind. © {{ year }} {{ profile.name }}.
+        </p>
+        <p class="mt-1 font-mono text-[11px] text-faint">
+          Tip: press <kbd class="rounded border border-line px-1">Ctrl K</kbd> anywhere.
         </p>
         <p class="mt-1 font-mono text-[11px] text-faint">
           Source on

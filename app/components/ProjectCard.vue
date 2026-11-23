@@ -1,7 +1,7 @@
 <template>
   <article
     ref="root"
-    class="card-surface group relative flex flex-col overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-lift"
+    class="card-surface group relative flex flex-col overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
     @pointermove="onPointerMove"
   >
     <!-- Cursor-tracked highlight, positioned by the --mx/--my variables. -->
@@ -17,20 +17,28 @@
       aria-hidden="true"
     />
 
-    <div class="relative flex items-start justify-between gap-4">
-      <span class="font-mono text-xs text-faint">{{ String(index + 1).padStart(2, "0") }}</span>
-      <span
-        v-if="project.featured"
-        class="inline-flex items-center gap-1 rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[10px] tracking-wider text-accent uppercase"
-      >
-        <AppIcon name="bolt" :size="10" />
-        featured
+    <div class="relative flex items-center justify-between gap-3 font-mono text-[10px] tracking-wider uppercase">
+      <span class="text-faint">prj-{{ String(index + 1).padStart(2, "0") }}</span>
+      <span class="flex flex-wrap justify-end gap-1">
+        <span
+          v-for="cat in project.categories"
+          :key="cat"
+          class="rounded border px-1.5 py-px"
+          :class="categoryClass[cat]"
+        >
+          {{ categoryLabel[cat] }}
+        </span>
+        <span
+          v-if="project.featured"
+          class="inline-flex items-center gap-1 rounded border border-accent/30 bg-accent/10 px-1.5 py-px text-accent"
+        >
+          <AppIcon name="bolt" :size="9" />
+          top
+        </span>
       </span>
     </div>
 
-    <h3 class="relative mt-3 font-display text-xl font-semibold">
-      {{ project.name }}
-    </h3>
+    <h3 class="relative mt-4 font-display text-xl font-semibold">{{ project.name }}</h3>
     <p class="relative mt-1 text-sm font-medium text-accent">{{ project.tagline }}</p>
     <p class="relative mt-3 text-sm/relaxed text-muted">{{ project.summary }}</p>
 
@@ -54,20 +62,15 @@
       :aria-expanded="expanded"
       @click="expanded = !expanded"
     >
+      <span class="text-accent">{{ expanded ? "-" : "+" }}</span>
       {{ expanded ? "less" : "how it works" }}
-      <AppIcon
-        name="chevron"
-        :size="13"
-        class="transition-transform duration-300"
-        :class="expanded && 'rotate-180'"
-      />
     </button>
 
     <ul class="relative mt-5 mb-5 flex flex-wrap gap-1.5">
       <li
         v-for="tech in project.stack"
         :key="tech"
-        class="rounded-md bg-surface-alt px-2 py-1 font-mono text-[11px] text-faint"
+        class="rounded bg-surface-alt px-2 py-1 font-mono text-[11px] text-faint"
       >
         {{ tech }}
       </li>
@@ -98,9 +101,23 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from "~/data/site";
+import type { Project, ProjectCategory } from "~/data/site";
 
 defineProps<{ project: Project; index: number }>();
+
+const categoryLabel: Record<ProjectCategory, string> = {
+  security: "sec",
+  fullstack: "full-stack",
+  ml: "ml",
+  tools: "tool",
+};
+
+const categoryClass: Record<ProjectCategory, string> = {
+  security: "border-danger/30 bg-danger/10 text-danger",
+  fullstack: "border-cyber/30 bg-cyber/10 text-cyber",
+  ml: "border-warn/30 bg-warn/10 text-warn",
+  tools: "border-line-strong text-muted",
+};
 
 const root = useTemplateRef<HTMLElement>("root");
 const expanded = ref(false);

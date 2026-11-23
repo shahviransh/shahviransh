@@ -6,9 +6,11 @@
       <div class="mx-auto max-w-3xl text-center">
         <p
           v-reveal
-          class="mb-3 font-mono text-xs tracking-[0.2em] text-accent uppercase"
+          class="mb-4 inline-flex items-center gap-2 rounded-md border border-line bg-surface/60 px-2.5 py-1 font-mono text-xs text-muted backdrop-blur"
         >
-          06 - get in touch
+          <span class="text-faint">06</span>
+          <span class="text-accent">~/viransh $</span>
+          <span class="text-ink">./say-hi.sh</span>
         </p>
         <h2
           v-reveal="60"
@@ -18,14 +20,14 @@
           <span class="text-gradient-accent">holds up</span>
         </h2>
         <p v-reveal="120" class="mx-auto mt-5 max-w-xl text-base/relaxed text-muted md:text-lg/relaxed">
-          I'm looking for software engineering and security analyst roles, and I can start now. If
-          you're hiring for either - or just want to compare notes on a CTF - my inbox is open.
+          I'm looking for software and security analyst roles and can start right away. Hiring, or
+          just want to talk CTFs? My inbox is open.
         </p>
 
         <div v-reveal="180" class="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
             :href="`mailto:${primaryEmail}`"
-            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-accent-contrast transition-transform hover:-translate-y-0.5"
+            class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-accent-contrast shadow-[0_0_24px_-6px_var(--c-accent)] transition-transform hover:-translate-y-0.5"
           >
             <span
               class="absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-20deg] bg-white/25 group-hover:animate-sweep"
@@ -36,7 +38,7 @@
         </div>
 
         <div v-reveal="240" class="mx-auto mt-10 max-w-xl text-left">
-          <TerminalWindow title="contact.sh">
+          <TerminalWindow title="say-hi.sh">
             <div class="space-y-2.5 text-[13px]">
               <p class="flex flex-wrap items-center gap-2">
                 <span class="text-accent">$</span>
@@ -56,7 +58,7 @@
                 <span class="text-[11px] text-faint">{{ mail.label }}</span>
                 <button
                   type="button"
-                  class="inline-flex items-center gap-1.5 rounded-md border border-line px-2 py-1 text-[11px] text-muted transition-colors hover:border-accent hover:text-accent"
+                  class="inline-flex items-center gap-1.5 rounded border border-line px-2 py-1 text-[11px] text-muted transition-colors hover:border-accent hover:text-accent"
                   @click="copy(mail.address)"
                 >
                   <AppIcon :name="copied === mail.address ? 'check' : 'copy'" :size="12" />
@@ -73,14 +75,14 @@
               </p>
               <p class="flex flex-wrap items-center gap-2 pt-1">
                 <span class="text-accent">$</span>
-                <span class="text-muted">echo $AVAILABILITY</span>
+                <span class="text-muted">echo $STATUS</span>
               </p>
               <p class="flex items-center gap-2 text-ink">
                 <span class="relative grid size-2 place-items-center">
                   <span class="absolute size-2 animate-pulse-ring rounded-full bg-accent" />
                   <span class="size-2 rounded-full bg-accent" />
                 </span>
-                Graduated {{ profile.graduated }} - available to start immediately
+                Graduated {{ profile.graduated }}, ready to start now
               </p>
             </div>
           </TerminalWindow>

@@ -3,8 +3,8 @@
     <div class="container-page">
       <SectionHeading
         index="01"
-        kicker="whoami"
-        title="Two disciplines, one habit of mind"
+        command="cat about.md"
+        title="I build it, then I try to break it"
         :description="profile.secondary"
       />
 
@@ -12,32 +12,30 @@
         <div class="space-y-6">
           <div v-reveal:left class="space-y-4 text-base/relaxed text-muted">
             <p>
-              I graduated from {{ profile.school }} in {{ profile.graduated }} with a
-              <span class="font-medium text-ink">{{ profile.degree }}</span>. The last three years
-              split cleanly in two: building production software for the federal government, and
-              learning to take software apart.
+              I finished my
+              <span class="font-medium text-ink">Computer Science degree at McMaster</span> in
+              {{ profile.graduated }}, with a minor in Statistics. My time there went two ways:
+              building real software, and learning how to take it apart.
             </p>
             <p>
-              On the build side I was the sole developer on two internal platforms at Environment and
-              Climate Change Canada - from the first prototype through signed cross-platform releases
-              and an Azure deployment scientists actually log into.
+              <span class="font-mono text-sm text-cyber">[build]</span> I was the only developer on
+              two apps for Environment and Climate Change Canada, from the first prototype to signed
+              releases on Azure that scientists actually log into.
             </p>
             <p>
-              On the defensive side I work alerts end to end: pivot through Splunk, read the Windows
-              event log, follow the packet capture, and write down what actually happened. Competing
-              in CTFs keeps the offensive half honest - it's much easier to detect an attack you've
-              run yourself.
+              <span class="font-mono text-sm text-danger">[defend]</span> I work alerts end to end:
+              Splunk, Windows event logs, packet captures, then a write-up of what really happened.
+              CTFs keep me honest. It's a lot easier to catch an attack you've run yourself.
             </p>
             <p class="font-mono text-sm text-faint">
-              Pronounced <span class="text-accent">{{ profile.pronunciation }}</span
-              >.
+              It's pronounced <span class="text-accent">{{ profile.pronunciation }}</span>.
             </p>
           </div>
 
           <div v-reveal:left="120" class="card-surface p-5">
             <div class="flex items-start gap-3">
               <span
-                class="grid size-10 shrink-0 place-items-center rounded-lg border border-line bg-surface-alt text-accent"
+                class="grid size-10 shrink-0 place-items-center rounded-md border border-line bg-surface-alt text-accent"
               >
                 <AppIcon name="graduation" :size="18" />
               </span>
@@ -60,45 +58,19 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div v-reveal:right="100" class="lg:sticky lg:top-28">
-          <TerminalWindow :title="`~/${profile.handle}`">
-            <div class="space-y-1">
-              <p class="flex gap-2">
-                <span class="text-accent">$</span>
-                <span class="text-ink">whoami --verbose</span>
-              </p>
-              <dl class="mt-3 space-y-2">
-                <div
-                  v-for="(row, index) in whoami"
-                  :key="row.key"
-                  v-reveal:left="index * 70"
-                  class="flex flex-col gap-0.5 sm:flex-row sm:gap-3"
-                >
-                  <dt class="w-16 shrink-0 text-cyber">{{ row.key }}</dt>
-                  <dd class="min-w-0 text-muted">
-                    <span class="mr-1.5 text-faint">=</span>{{ row.value }}
-                  </dd>
-                </div>
-              </dl>
-              <p class="mt-4 flex gap-2 border-t border-line pt-3">
-                <span class="text-accent">$</span>
-                <span class="animate-caret text-accent">█</span>
-              </p>
-            </div>
-          </TerminalWindow>
-
-          <div v-reveal="220" class="card-surface mt-5 p-5">
-            <p class="mb-3 font-mono text-[11px] tracking-widest text-faint uppercase">
-              Outside the terminal
-            </p>
+          <div v-reveal:left="200" class="card-surface p-5">
+            <p class="mb-2 font-mono text-[11px] tracking-widest text-faint uppercase">Off the clock</p>
             <p class="text-sm/relaxed text-muted">
-              I like problems where the fun part is the constraint - packaging a Python engine inside
-              a desktop app, or getting end-to-end encryption to survive a real notification system.
-              When I'm not shipping, I'm usually deep in a TryHackMe room or a novel.
+              I like problems where the constraint is the fun part, like squeezing a Python engine
+              into a desktop app or getting group chat encryption right. Otherwise I'm probably deep
+              in a TryHackMe room or a novel.
             </p>
           </div>
+        </div>
+
+        <div v-reveal:right="100" class="lg:sticky lg:top-28 lg:self-start">
+          <InteractiveShell />
         </div>
       </div>
     </div>
@@ -106,5 +78,5 @@
 </template>
 
 <script setup lang="ts">
-import { education, profile, whoami } from "~/data/site";
+import { education, profile } from "~/data/site";
 </script>

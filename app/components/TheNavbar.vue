@@ -11,7 +11,7 @@
       <a
         href="#home"
         class="group flex items-center gap-2.5"
-        :aria-label="`${profile.name} — home`"
+        :aria-label="`${profile.name}, back to top`"
         @click="close"
       >
         <span class="relative grid size-10 place-items-center">
@@ -57,6 +57,15 @@
       </nav>
 
       <div class="flex items-center gap-2">
+        <button
+          type="button"
+          class="hidden h-10 items-center gap-2 rounded-lg border border-line bg-surface px-3 font-mono text-xs text-faint transition-colors hover:border-accent hover:text-accent md:inline-flex"
+          aria-label="Open command palette"
+          @click="openPalette"
+        >
+          <AppIcon name="terminal" :size="14" />
+          <kbd class="text-[11px]">Ctrl K</kbd>
+        </button>
         <ThemeToggle />
         <ResumeMenu />
         <button
@@ -111,17 +120,9 @@
 </template>
 
 <script setup lang="ts">
-import { profile } from "~/data/site";
+import { navLinks as links, profile } from "~/data/site";
 
-const links = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "security", label: "Security" },
-  { id: "contact", label: "Contact" },
-];
-
+const { open: openPalette } = useCommandPalette();
 const open = ref(false);
 const scrolled = ref(false);
 const active = useActiveSection(["home", ...links.map((l) => l.id)]);

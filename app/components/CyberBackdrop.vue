@@ -30,7 +30,7 @@ let frame = 0;
 let visible = true;
 let width = 0;
 let height = 0;
-let accent = "45, 212, 191";
+let accent = "46, 230, 255";
 
 function readAccent() {
   const raw = getComputedStyle(document.documentElement).getPropertyValue("--c-accent").trim();
