@@ -29,7 +29,7 @@ export const profile = {
   intro:
     "I build software, then try to break it. I spent a year as the only developer on two apps for Environment and Climate Change Canada scientists, and most of my free time goes into CTFs, packet captures and log hunting.",
   secondary:
-    "My team MacHackers took 2nd in Toronto and 3rd at the CyberSci Regional Finals 2025. I write code like someone is going to attack it, because someone usually does.",
+    "My team MacHackers took 2nd in Toronto and 3rd in Canada at the CyberSci Regional Finals 2025. I write code like someone is going to attack it, because someone usually does.",
   resumes: [
     {
       label: "Software Development",
@@ -58,7 +58,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2nd", label: "CyberSci 2025, Toronto", detail: "3rd at Regional Finals" },
+  { value: "3rd", label: "CyberSci Regional Finals 2025, Canada", detail: "2nd in Toronto" },
   { value: "12 mo", label: "Federal co-op", detail: "ECCC & Canada Water Agency" },
   { value: "3.7", label: "GPA, Dean's Honours", detail: "A+ in Database, DSA, InfoSec & Networks" },
   { value: "65+", label: "TryHackMe rooms", detail: "Blue and red team" },
@@ -131,7 +131,7 @@ export const experience: ExperienceEntry[] = [
     kind: "Leadership",
     hash: "4b91f0d",
     bullets: [
-      "Took 2nd in Toronto and 3rd at CyberSci Regional Finals 2025 with MacHackers. Also played Advent of Cyber and CyberStart Canada.",
+      "Took 2nd in Toronto and 3rd in Canada at CyberSci Regional Finals 2025 with MacHackers. Also played Advent of Cyber and CyberStart Canada.",
       "Rebuild attack chains from PCAPs, memory images and file metadata with Wireshark, tcpdump and CyberChef.",
       "Crack weak hashes with John the Ripper and replay password spraying with Hydra to see what it looks like in the logs.",
     ],
@@ -485,7 +485,7 @@ export const securityPractice = [
 ];
 
 export const competitions = [
-  { name: "CyberSci Regional Finals", result: "2nd in Toronto, 3rd overall", year: "2025" },
+  { name: "CyberSci Regional Finals", result: "2nd in Toronto, 3rd in Canada", year: "2025" },
   { name: "Advent of Cyber", result: "Completed", year: "2024 & 2025" },
   { name: "CyberStart Canada", result: "Competed", year: "2025" },
 ];
