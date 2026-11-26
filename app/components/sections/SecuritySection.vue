@@ -20,7 +20,7 @@
               CyberSci Regional Finals 2025
             </p>
             <h3 class="mt-3 font-display text-3xl leading-tight font-bold text-balance sm:text-4xl">
-              2nd in Toronto, 3rd overall with
+              2nd in Toronto, 3rd in Canada with
               <span class="text-gradient-accent">MacHackers</span>
             </h3>
             <p class="mt-3 text-sm/relaxed text-muted">
