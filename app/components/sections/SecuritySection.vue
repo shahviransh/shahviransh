@@ -37,7 +37,7 @@
                 <dd class="mt-1 text-xl font-bold text-ink">2336</dd>
               </div>
               <div class="rounded-md border border-line bg-surface/70 p-3">
-                <dt class="text-[10px] tracking-wider text-faint uppercase">finals</dt>
+                <dt class="text-[10px] tracking-wider text-faint uppercase">Canada</dt>
                 <dd class="mt-1 text-xl font-bold text-ink">3rd</dd>
               </div>
             </dl>
